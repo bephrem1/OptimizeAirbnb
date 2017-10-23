@@ -1,54 +1,28 @@
 package com.benyamephrem.model;
 
-import com.benyamephrem.service.Location;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
-
-import java.util.Date;
-import java.util.List;
 
 public class Listing {
 
     @Id
     private String id; //The id MongoDB will assign each index
 
+    //TODO:be Do we need this to be indexed? Assess what needs to be indexed here and what doesn't based on queries you write later
     @Indexed(direction = IndexDirection.ASCENDING)
     private String listingId; //The listing ID indexed in ascending order
     private String hostId; //The host ID indexed in ascending order
 
+    private ListingInfo listingInfo; //Class containing general info about the listing like host name and listing description
 
-    private String listingUrl; //The listing's url
-    private String hostUrl; //The host's profile url
-    private String title; //The listing's title
-    private String summary; //A short summary about the listing
-    private String space; //A short summary about the space the listed property has
-    private String description; //A longer description about the listing in more detail
-    private String neighborhoodOverview; //A quick overview on the neighborhood
-    private String hostName; //Name of the host
-    private Date hostSince; //The host has been a member of Airbnb since this date
-    private String hostAbout; //Short description about the host
-    private String superhost; //Is this host a superhost t == true f == false
+    private ListingLocation listingLocation; //Location data type created to hold data about listingLocation of the listing
 
-    private Location location; //Location data structure created to hold data about location of the listing
+    private PropertyLogistics propertyLogistics; //Class containing property logistical data like amenities and max guests accommodated
 
-    private String propertyType; //Ex: Apartment, House, Condominium
-    private String roomType; //Ex: Private Room, Entire Home/Apt
-    private int maxAccomodates; //Number of people the property accommodates
-    private int maxGuests; //Max guests a person staying can have
-    private int bathrooms;
-    private int bedrooms;
-    private int beds;
-    private String bedType; //Ex: Real Bed, Airbed
-    private List<String> amenities;
+    private ListingFinancials listingFinancials; //Price and cost data about the property
 
-    private double dailyPrice; //Price to stay per day
-    private double weeklyPrice; //Price to stay per week
-    private double monthlyPrice; //Price to stay per month
-    private double cleaningFee; //Cleaning Fee charged to customer
-    private double extraPeopleFee; //Fee for having more than (maxAccommodates + maxGuests)
-    private double securityDeposit; //Security Deposit required
-
+    //TODO:be Can we consolidate these variables below to clean things up?
     private int minNights; //Minimum nights a guest must stay to book
     private int maxNights; //Maximum nights a guest can stay before having to leave
     private int listingAvaliabilityInPast30Days; //How many days the listing has been available to book in the past 30 days
@@ -56,11 +30,112 @@ public class Listing {
     private int listingAvaliabilityInPast90Days; //How many days the listing has been available to book in the past 90 days
     private int listingAvaliabilityInPastYear; //How many days the listing has been available to book in the past 365 days
 
-    private int numReviews; //Number of reviews the listing has received
-
-
-
+    private ListingReviewStats listingReviewStats; //Data structure made to better organize review statistics
 
     public Listing(){}
 
+
+    public String getListingId() {
+        return listingId;
+    }
+
+    public void setListingId(String listingId) {
+        this.listingId = listingId;
+    }
+
+    public String getHostId() {
+        return hostId;
+    }
+
+    public void setHostId(String hostId) {
+        this.hostId = hostId;
+    }
+
+    public ListingInfo getListingInfo() {
+        return listingInfo;
+    }
+
+    public void setListingInfo(ListingInfo listingInfo) {
+        this.listingInfo = listingInfo;
+    }
+
+    public ListingLocation getListingLocation() {
+        return listingLocation;
+    }
+
+    public void setListingLocation(ListingLocation listingLocation) {
+        this.listingLocation = listingLocation;
+    }
+
+    public PropertyLogistics getPropertyLogistics() {
+        return propertyLogistics;
+    }
+
+    public void setPropertyLogistics(PropertyLogistics propertyLogistics) {
+        this.propertyLogistics = propertyLogistics;
+    }
+
+    public ListingFinancials getListingFinancials() {
+        return listingFinancials;
+    }
+
+    public void setListingFinancials(ListingFinancials listingFinancials) {
+        this.listingFinancials = listingFinancials;
+    }
+
+    public int getMinNights() {
+        return minNights;
+    }
+
+    public void setMinNights(int minNights) {
+        this.minNights = minNights;
+    }
+
+    public int getMaxNights() {
+        return maxNights;
+    }
+
+    public void setMaxNights(int maxNights) {
+        this.maxNights = maxNights;
+    }
+
+    public int getListingAvaliabilityInPast30Days() {
+        return listingAvaliabilityInPast30Days;
+    }
+
+    public void setListingAvaliabilityInPast30Days(int listingAvaliabilityInPast30Days) {
+        this.listingAvaliabilityInPast30Days = listingAvaliabilityInPast30Days;
+    }
+
+    public int getListingAvaliabilityInPast60Days() {
+        return listingAvaliabilityInPast60Days;
+    }
+
+    public void setListingAvaliabilityInPast60Days(int listingAvaliabilityInPast60Days) {
+        this.listingAvaliabilityInPast60Days = listingAvaliabilityInPast60Days;
+    }
+
+    public int getListingAvaliabilityInPast90Days() {
+        return listingAvaliabilityInPast90Days;
+    }
+
+    public void setListingAvaliabilityInPast90Days(int listingAvaliabilityInPast90Days) {
+        this.listingAvaliabilityInPast90Days = listingAvaliabilityInPast90Days;
+    }
+
+    public int getListingAvaliabilityInPastYear() {
+        return listingAvaliabilityInPastYear;
+    }
+
+    public void setListingAvaliabilityInPastYear(int listingAvaliabilityInPastYear) {
+        this.listingAvaliabilityInPastYear = listingAvaliabilityInPastYear;
+    }
+
+    public ListingReviewStats getListingReviewStats() {
+        return listingReviewStats;
+    }
+
+    public void setListingReviewStats(ListingReviewStats listingReviewStats) {
+        this.listingReviewStats = listingReviewStats;
+    }
 }
