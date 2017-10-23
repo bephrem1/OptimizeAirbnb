@@ -1,0 +1,18 @@
+.flash {
+    color: #fff;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.flash.failure {
+    background: #e25656;
+}
+
+.flash.success {
+    background: #4cc38c;
+}
+
+.flash.info {
+    background: #eca73f;
+}
