@@ -10,4 +10,8 @@ public interface ListingDao extends MongoRepository<Listing, String> {
 
     Listing findById(String id);
 
+    //Lets us filter down into data tree to query listingLocation variable's neighborhood value...'?0' passes in the parameter
+    //input for querying
+    @Query(value = "{listingLocation.neighborhood:?0}")
+    List<Listing> findByNeighborhood(String neighborhood);
 }
