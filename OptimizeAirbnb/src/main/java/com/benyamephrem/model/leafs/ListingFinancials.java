@@ -5,58 +5,72 @@ Class made to encapsulate price and cost data about the property
  */
 public class ListingFinancials {
 
-    private double dailyPrice; //Price to stay per day
-    private double weeklyPrice; //Price to stay per week
-    private double monthlyPrice; //Price to stay per month
-    private double cleaningFee; //Cleaning Fee charged to customer
-    private double extraPeopleFee; //Fee for having more than (maxAccommodates + maxGuests)
-    private double securityDeposit; //Security Deposit required
+    private Double dailyPrice; //Price to stay per day
+    private Double weeklyPrice; //Price to stay per week
+    private Double monthlyPrice; //Price to stay per month
+    private Double cleaningFee; //Cleaning Fee charged to customer
+    private Double extraPeopleFee; //Fee for having more than (maxAccommodates + maxGuests)
+    private Double securityDeposit; //Security Deposit required
 
-    public double getDailyPrice() {
+    public ListingFinancials(){
+
+    }
+
+    public ListingFinancials(Double dailyPrice, Double weeklyPrice, Double monthlyPrice, Double cleaningFee,
+                             Double extraPeopleFee, Double securityDeposit) {
+        this.dailyPrice = dailyPrice;
+        this.weeklyPrice = weeklyPrice;
+        this.monthlyPrice = monthlyPrice;
+        this.cleaningFee = cleaningFee;
+        this.extraPeopleFee = extraPeopleFee;
+        this.securityDeposit = securityDeposit;
+    }
+
+    public Double getDailyPrice() {
         return dailyPrice;
     }
 
-    public void setDailyPrice(double dailyPrice) {
+    public void setDailyPrice(Double dailyPrice) {
         this.dailyPrice = dailyPrice;
     }
 
-    public double getWeeklyPrice() {
+    public Double getWeeklyPrice() {
         return weeklyPrice;
     }
 
-    public void setWeeklyPrice(double weeklyPrice) {
+    public void setWeeklyPrice(Double weeklyPrice) {
         this.weeklyPrice = weeklyPrice;
     }
 
-    public double getMonthlyPrice() {
+    public Double getMonthlyPrice() {
         return monthlyPrice;
     }
 
-    public void setMonthlyPrice(double monthlyPrice) {
+    public void setMonthlyPrice(Double monthlyPrice) {
         this.monthlyPrice = monthlyPrice;
     }
 
-    public double getCleaningFee() {
+    public Double getCleaningFee() {
         return cleaningFee;
     }
 
-    public void setCleaningFee(double cleaningFee) {
+    public void setCleaningFee(Double cleaningFee) {
         this.cleaningFee = cleaningFee;
     }
 
-    public double getExtraPeopleFee() {
+    public Double getExtraPeopleFee() {
         return extraPeopleFee;
     }
 
-    public void setExtraPeopleFee(double extraPeopleFee) {
+    public void setExtraPeopleFee(Double extraPeopleFee) {
         this.extraPeopleFee = extraPeopleFee;
     }
 
-    public double getSecurityDeposit() {
+    public Double getSecurityDeposit() {
         return securityDeposit;
     }
 
-    public void setSecurityDeposit(double securityDeposit) {
+    public void setSecurityDeposit(Double securityDeposit) {
         this.securityDeposit = securityDeposit;
     }
 }

@@ -7,7 +7,7 @@ This class is made to consolidate and organize review data per listing
 public class ListingReviewStats {
 
     private int numTotalReviews; //Number of reviews the listing has received
-    private int reviewsPerMonth; //Number of reviews the listing receives per month
+    private Double reviewsPerMonth; //Number of reviews the listing receives per month
     private int listingAccuracyScore; //Accuracy of the listing as assessed by the guest (from 0-10)
     private int cleanlinessScore; //Cleanliness of the property as assessed by the guest (from 0-10)
     private int checkinScore; //Score of host's check-in process ease, etc. (from 0-10)
@@ -20,6 +20,19 @@ public class ListingReviewStats {
 
     }
 
+    public ListingReviewStats(int numTotalReviews, Double reviewsPerMonth, int listingAccuracyScore, int cleanlinessScore,
+                              int checkinScore, int communicationScore, int locationScore, int valueScore, int overallRating) {
+        this.numTotalReviews = numTotalReviews;
+        this.reviewsPerMonth = reviewsPerMonth;
+        this.listingAccuracyScore = listingAccuracyScore;
+        this.cleanlinessScore = cleanlinessScore;
+        this.checkinScore = checkinScore;
+        this.communicationScore = communicationScore;
+        this.locationScore = locationScore;
+        this.valueScore = valueScore;
+        this.overallRating = overallRating;
+    }
+
     public int getNumTotalReviews() {
         return numTotalReviews;
     }
@@ -28,11 +41,11 @@ public class ListingReviewStats {
         this.numTotalReviews = numTotalReviews;
     }
 
-    public int getReviewsPerMonth() {
+    public Double getReviewsPerMonth() {
         return reviewsPerMonth;
     }
 
-    public void setReviewsPerMonth(int reviewsPerMonth) {
+    public void setReviewsPerMonth(Double reviewsPerMonth) {
         this.reviewsPerMonth = reviewsPerMonth;
     }
 

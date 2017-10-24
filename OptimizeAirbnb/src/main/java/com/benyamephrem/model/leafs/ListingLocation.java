@@ -19,6 +19,17 @@ public class ListingLocation {
 
     }
 
+    public ListingLocation(double latitude, double longitude, String neighborhood, String street,
+                           String city, String state, String zipcode) {
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.neighborhood = neighborhood;
+        this.street = street;
+        this.city = city;
+        this.state = state;
+        this.zipcode = zipcode;
+    }
+
     public String getNeighborhood() {
         return neighborhood;
     }

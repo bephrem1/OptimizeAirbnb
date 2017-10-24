@@ -1,5 +1,7 @@
 package com.benyamephrem.model.leafs;
 
+import com.benyamephrem.model.Listing;
+
 import java.util.Date;
 
 /*
@@ -16,10 +18,31 @@ public class ListingInfo {
     private String description; //A longer description about the listing in more detail
     private String neighborhoodOverview; //A quick overview on the neighborhood
     private String hostName; //Name of the host
-    private Date hostSince; //The host has been a member of Airbnb since this date
+    private String hostSince; //The host has been a member of Airbnb since this date
     private String hostAbout; //Short description about the host
     private String superhost; //Is this host a superhost t == true f == false
     private int hostListingCount; //Amount of listings the host has
+
+    public ListingInfo(){
+    }
+
+    public ListingInfo(String listingUrl, String hostUrl, String title, String summary,
+                       String space, String description, String neighborhoodOverview,
+                       String hostName, String hostSince, String hostAbout, String superhost,
+                       int hostListingCount) {
+        this.listingUrl = listingUrl;
+        this.hostUrl = hostUrl;
+        this.title = title;
+        this.summary = summary;
+        this.space = space;
+        this.description = description;
+        this.neighborhoodOverview = neighborhoodOverview;
+        this.hostName = hostName;
+        this.hostSince = hostSince;
+        this.hostAbout = hostAbout;
+        this.superhost = superhost;
+        this.hostListingCount = hostListingCount;
+    }
 
     public String getListingUrl() {
         return listingUrl;
@@ -85,11 +108,11 @@ public class ListingInfo {
         this.hostName = hostName;
     }
 
-    public Date getHostSince() {
+    public String getHostSince() {
         return hostSince;
     }
 
-    public void setHostSince(Date hostSince) {
+    public void setHostSince(String hostSince) {
         this.hostSince = hostSince;
     }
 

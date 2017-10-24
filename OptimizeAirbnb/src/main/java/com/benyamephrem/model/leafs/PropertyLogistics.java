@@ -11,11 +11,26 @@ public class PropertyLogistics {
     private String roomType; //Ex: Private Room, Entire Home/Apt
     private int maxAccomodates; //Number of people the property accommodates
     private int maxGuests; //Max guests a person staying can have
-    private int bathrooms;
+    private double bathrooms;
     private int bedrooms;
     private int beds;
     private String bedType; //Ex: Real Bed, Airbed
-    private List<String> amenities;
+
+    public PropertyLogistics(){
+
+    }
+
+    public PropertyLogistics(String propertyType, String roomType, int maxAccomodates, int maxGuests,
+                             double bathrooms, int bedrooms, int beds, String bedType) {
+        this.propertyType = propertyType;
+        this.roomType = roomType;
+        this.maxAccomodates = maxAccomodates;
+        this.maxGuests = maxGuests;
+        this.bathrooms = bathrooms;
+        this.bedrooms = bedrooms;
+        this.beds = beds;
+        this.bedType = bedType;
+    }
 
     public String getPropertyType() {
         return propertyType;
@@ -49,11 +64,11 @@ public class PropertyLogistics {
         this.maxGuests = maxGuests;
     }
 
-    public int getBathrooms() {
+    public double getBathrooms() {
         return bathrooms;
     }
 
-    public void setBathrooms(int bathrooms) {
+    public void setBathrooms(double bathrooms) {
         this.bathrooms = bathrooms;
     }
 
@@ -79,13 +94,5 @@ public class PropertyLogistics {
 
     public void setBedType(String bedType) {
         this.bedType = bedType;
-    }
-
-    public List<String> getAmenities() {
-        return amenities;
-    }
-
-    public void setAmenities(List<String> amenities) {
-        this.amenities = amenities;
     }
 }
