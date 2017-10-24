@@ -37,18 +37,28 @@ comfortable on the command line starting MongoDB, navigating around, staging com
 
 -Importance of algorithim efficiency: I've never worked with a set of data this large and all the talk about
 Big O notation never really hit me until I saw how the idea of efficiency can have so much of a time impact on
-operations </br>
+operations. Having *thousands* upon *thousands* of listings makes data processing time crucial.</br>
 
 -NoSQL means "Not Only SQL", not literally no SQL... </br>
+
+-Using Google Charts to display the data dynamically </br>
 
 ## What I Don't Like About My Project </br>
 -There are a lot of places where things are ineffecient, hacked together, and unsustainable. I'd like to fix
 these moving forward and have marked them with TODO's </br>
+
+## Known Errors </br>
+-I may have only imported part of the excel sheet but I feel like the numbers are off on some charts. I believe
+it is because my computer can't open the full excel document so it only loads part of it (I get that message sometimes
+from Excel). Either way no matter the size of the data the DatabaseSeeder still will work with an excel file of any size
+and nothing will change besides the numbers the charts show on the frontend (as long as column names match up to what's
+in the class)</br>
 
 ## Built With
 
 * [Spring](https://spring.io/) - The Web Framework Used
 * [MongoDB](https://www.mongodb.com/) - NoSQL Database
 * [Intellij](https://www.jetbrains.com/idea/) - IDE
+* [Google Charts](https://developers.google.com/chart/) - Google Charts For Displaying Data
 
 ## Acknowledgments
