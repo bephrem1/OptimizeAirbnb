@@ -1,5 +1,6 @@
 package com.benyamephrem.model;
 
+import com.benyamephrem.model.leafs.*;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.IndexDirection;
 import org.springframework.data.mongodb.core.index.Indexed;
@@ -34,6 +35,25 @@ public class Listing {
 
     public Listing(){}
 
+    //TODO:be This is a very verbose constructor...implement the builder design pattern if you have time...
+    public Listing(String listingId, String hostId, ListingInfo listingInfo, ListingLocation listingLocation,
+                   PropertyLogistics propertyLogistics, ListingFinancials listingFinancials, int minNights, int maxNights,
+                   int listingAvaliabilityInPast30Days, int listingAvaliabilityInPast60Days, int listingAvaliabilityInPast90Days,
+                   int listingAvaliabilityInPastYear, ListingReviewStats listingReviewStats) {
+        this.listingId = listingId;
+        this.hostId = hostId;
+        this.listingInfo = listingInfo;
+        this.listingLocation = listingLocation;
+        this.propertyLogistics = propertyLogistics;
+        this.listingFinancials = listingFinancials;
+        this.minNights = minNights;
+        this.maxNights = maxNights;
+        this.listingAvaliabilityInPast30Days = listingAvaliabilityInPast30Days;
+        this.listingAvaliabilityInPast60Days = listingAvaliabilityInPast60Days;
+        this.listingAvaliabilityInPast90Days = listingAvaliabilityInPast90Days;
+        this.listingAvaliabilityInPastYear = listingAvaliabilityInPastYear;
+        this.listingReviewStats = listingReviewStats;
+    }
 
     public String getListingId() {
         return listingId;
