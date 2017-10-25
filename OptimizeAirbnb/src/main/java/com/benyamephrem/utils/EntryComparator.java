@@ -7,7 +7,9 @@ public class EntryComparator implements Comparator<Map.Entry<String,Integer>> {
 
     /*
     * Credits to 'sebadagostino' on Stack Overflow for this code
-    * to sort HashMap by value
+    * to sort HashMap by value (whereas sorting by key is built into
+    * the Hashmpa class, therefore we have to do this to make our own
+    * value sorting implementation
      */
     public EntryComparator(){
 

@@ -106,6 +106,36 @@
       chart.draw(view, options);
   }
   </script>
+    <script type="text/javascript" th:inline="javascript">
+    google.charts.load("current", {packages:['corechart']});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Property Type', 'Occurrences', { role: 'style' } ],
+        [ [[${property1}]], [[${propertyCount1}]], '#dd6239'],
+        [ [[${property2}]], [[${propertyCount2}]], '#a34627'],
+        [ [[${property3}]], [[${propertyCount3}]], '#632a16']
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Most Frequently Listed Property Types In San Francisco",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "none" },
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("top_three_property_types"));
+      chart.draw(view, options);
+  }
+  </script>
 
 </head>
 
@@ -116,6 +146,7 @@
 
     <div id="neighborhood_listing_count_chart" style="width: 900px; height: 500px;"></div>
     <div id="top_ten_names_barchart" style="width: 900px; height: 300px;"></div>
+    <div id="top_three_property_types" style="width: 900px; height: 300px;"></div>
 
     <footer th:replace="layout :: footer"></footer>
     <div th:replace="layout :: scripts"></div>

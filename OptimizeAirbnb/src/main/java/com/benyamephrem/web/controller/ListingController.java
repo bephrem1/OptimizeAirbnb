@@ -13,7 +13,7 @@ import java.util.Map;
 public class ListingController {
 
     @Autowired
-    ListingService listingService;
+    private ListingService listingService;
 
     @RequestMapping("/")
     public String getHomepage(Model model){
@@ -24,6 +24,7 @@ public class ListingController {
     public String getVisualizationChartsPage(Model model){
         Map<String, Integer> neighborhoodToCountMap = listingService.getNeighborhoodToListingCountMap();
         List<Map.Entry<String,Integer>> top10NamesThatOccur = listingService.findTop10NamesThatOccur();
+        List<Map.Entry<String,Integer>> top3PropertyTypesThatOccur = listingService.findTop3PropertyTypesThatOccur();
 
         //TODO:be This is a good way to condense the passage of data to view? Odd how the view must be rigid with neighborhood names...revise
         //Populate model with Neighborhood Listing Count attributes to pass to the view layer
@@ -37,6 +38,12 @@ public class ListingController {
             //Ex Attribute Passed: name1 and nameCount1 (the #1 most occurring name)
             model.addAttribute("name" + i, top10NamesThatOccur.get(i-1).getKey());
             model.addAttribute("nameCount" + i, top10NamesThatOccur.get(i-1).getValue());
+        }
+
+        //Populate the model with the top 3 property types that occur
+        for(int i = 1; i <=3; i++){
+            model.addAttribute("property" + i, top3PropertyTypesThatOccur.get(i-1).getKey());
+            model.addAttribute("propertyCount" + i, top3PropertyTypesThatOccur.get(i-1).getValue());
         }
 
         return "/visualize";

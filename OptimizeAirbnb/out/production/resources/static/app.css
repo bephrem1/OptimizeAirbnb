@@ -18,9 +18,13 @@ nav .brand-logo, nav ul li.active a {
     color: #fefefe;
 }
 
+nav .brand-logo:hover {
+    color: #5c626d;
+}
+
 nav .navigation-tab{
     color: #fefefe;
-    font-size: 1em;
+    font-size: 1.2em;
 }
 
 nav .navigation-tab:hover {

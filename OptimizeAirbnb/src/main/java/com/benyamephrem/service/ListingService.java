@@ -13,4 +13,6 @@ public interface ListingService {
     List<Listing> findByNeighborhood(String neighborhood);
     int getListingCountForNeighborhood(String neighborhood);
     Map<String, Integer> getNeighborhoodToListingCountMap();
+    List<Listing> findByPropertyType(String propertyType);
+    List<Map.Entry<String,Integer>> findTop3PropertyTypesThatOccur();
 }

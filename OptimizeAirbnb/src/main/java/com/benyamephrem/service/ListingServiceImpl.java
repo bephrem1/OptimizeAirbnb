@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-//TODO:be DATA SHOULD BE CACHED so we don't have to keep running expensive requests that have already been run. It's slowing application down badly.
+//TODO:be QUERY RESULTS SHOULD BE CACHED! We don't want to keep running expensive requests that have already been run. It's slowing application down badly.
 @Service
 public class ListingServiceImpl implements ListingService{
     @Autowired
-    ListingDao listingDao;
+    private ListingDao listingDao;
 
     @Override
     public List<Listing> findAll() {
@@ -26,6 +26,7 @@ public class ListingServiceImpl implements ListingService{
         List<Listing> listings = findAll();
         Map<String, Integer> namesAndCountMap = new HashMap<>();
 
+        //TODO:be This map populating loop is verbose. Refactor this to a Java 8 stream implementation if you have time.
         //Populate the namesAndCountMap with all the host names and their respective occurrences in listings
         for(Listing listing : listings){
             String key = listing.getListingInfo().getHostName();
@@ -38,7 +39,7 @@ public class ListingServiceImpl implements ListingService{
             }
         }
 
-        //Find top 10 names that occur
+        //Find top 10 names that occur by sorting the list then returning top 10 entries
         List<Map.Entry<String,Integer>> results = new ArrayList<>(namesAndCountMap.entrySet());
         results.sort(new EntryComparator());
 
@@ -78,6 +79,32 @@ public class ListingServiceImpl implements ListingService{
         }
 
         return neighborhoodToCountMap;
+    }
+
+    @Override
+    public List<Listing> findByPropertyType(String propertyType) {
+        return listingDao.findByPropertyType(propertyType);
+    }
+
+    @Override
+    public List<Map.Entry<String,Integer>> findTop3PropertyTypesThatOccur() {
+        Map<String, Integer> propertyTypeCountMap = new HashMap<>();
+        List<Listing> listings = findAll();
+
+        //TODO:be This map populating loop is verbose. Refactor this to a Java 8 stream implementation if you have time.
+        for(Listing listing : listings) {
+            String key = listing.getPropertyLogistics().getPropertyType();
+            if (!propertyTypeCountMap.containsKey(key)) {
+                propertyTypeCountMap.put(listing.getPropertyLogistics().getPropertyType(), 1);
+            } else{
+                propertyTypeCountMap.put(key, propertyTypeCountMap.get(key) + 1);
+            }
+        }
+
+        List<Map.Entry<String,Integer>> results = new ArrayList<>(propertyTypeCountMap.entrySet());
+        results.sort(new EntryComparator());
+
+        return results.subList(0,3);
     }
 
 }
