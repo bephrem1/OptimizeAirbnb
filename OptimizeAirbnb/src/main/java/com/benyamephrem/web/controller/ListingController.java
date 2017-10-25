@@ -51,4 +51,18 @@ public class ListingController {
 
         return "/visualize";
     }
+
+    @RequestMapping("/income-estimation")
+    public String getIncomeEstimationPage(Model model){
+
+        return "/income-estimation";
+    }
+
+
+
+    @RequestMapping("/price-optimization")
+    public String getPriceOptimizationPage(Model model){
+
+        return "/price-optimization";
+    }
 }

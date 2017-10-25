@@ -33,9 +33,13 @@
                 <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
                 <ul class="right hide-on-med-and-down">
                     <li th:classappend="${#httpServletRequest.servletPath.equals('/visualize') ? 'active' : ''}"><a th:href="@{/visualize}" class="navigation-tab">Visualize</a></li>
+                    <li th:classappend="${#httpServletRequest.servletPath.equals('/income-estimation') ? 'active' : ''}"><a th:href="@{/income-estimation}" class="navigation-tab">Income Estimator</a></li>
+                    <li th:classappend="${#httpServletRequest.servletPath.equals('/price-optimization') ? 'active' : ''}"><a th:href="@{/price-optimization}" class="navigation-tab">Price Optimizer</a></li>
                 </ul>
                 <ul id="mobile-nav" class="side-nav">
                     <li th:classappend="${#httpServletRequest.servletPath.equals('/visualize') ? 'active' : ''}"><a th:href="@{/visualize}" class="navigation-tab">Visualize</a></li>
+                    <li th:classappend="${#httpServletRequest.servletPath.equals('/income-estimation') ? 'active' : ''}"><a th:href="@{/income-estimation}" class="navigation-tab">Income Estimator</a></li>
+                    <li th:classappend="${#httpServletRequest.servletPath.equals('/price-optimization') ? 'active' : ''}"><a th:href="@{/price-optimization}" class="navigation-tab">Price Optimizer</a></li>
                 </ul>
             </div>
         </nav>
