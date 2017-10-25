@@ -14,7 +14,7 @@
       google.charts.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
-          ['Task', 'AirbnbListings Per Neighborhood'],
+          ['Neighborhood', 'Number Of Listings For This Neighborhood'],
           ['Bayview',   [[${bayview}]] ],
           ['Bernal Heights',   [[${bernalheights}]] ],
           ['Chinatown',   [[${chinatown}]] ],
@@ -54,7 +54,7 @@
         ]);
 
         var options = {
-          title: 'Number Of Listings Per Neighborhood',
+          title: 'Listing Count By Neighborhood',
           is3D: true,
         };
 
@@ -62,11 +62,46 @@
         chart.draw(data, options);
       }
     </script>
+    <script type="text/javascript" th:inline="javascript">
+    google.charts.load("current", {packages:["corechart"]});
+    google.charts.setOnLoadCallback(drawChart);
+    function drawChart() {
+      var data = google.visualization.arrayToDataTable([
+        ['Name', 'Count', { role: 'style' } ],
+        [ [[${name1}]], [[${nameCount1}]], '#fff200'],
+        [ [[${name2}]], [[${nameCount2}]], '#e8dc0d'],
+        [ [[${name3}]], [[${nameCount3}]], '#c4b213'],
+        [ [[${name4}]], [[${nameCount4}]], '#adaa8e'],
+        [ [[${name5}]], [[${nameCount5}]], '#adab9a'],
+        [ [[${name6}]], [[${nameCount6}]], '#bcbbb1'],
+        [ [[${name7}]], [[${nameCount7}]], '#7f7507'],
+        [ [[${name8}]], [[${nameCount8}]], '#726a0d'],
+        [ [[${name9}]], [[${nameCount9}]], '#5b5405'],
+        [ [[${name10}]], [[${nameCount10}]], '#474207']
+      ]);
+
+      var view = new google.visualization.DataView(data);
+      view.setColumns([0, 1,
+                       { calc: "stringify",
+                         sourceColumn: 1,
+                         type: "string",
+                         role: "annotation" },
+                       2]);
+
+      var options = {
+        title: "Top 10 Names Of Hosts On Airbnb In San Francisco",
+      };
+      var chart = new google.visualization.BarChart(document.getElementById("top_ten_names_barchart"));
+      chart.draw(view, options);
+  }
+  </script>
+
 </head>
 
 <body>
     <h1>Hello world</h1>
     <div id="neighborhood_listing_count_chart" style="width: 900px; height: 500px;"></div>
+    <div id="top_ten_names_barchart" style="width: 900px; height: 300px;"></div>
 
     <footer th:replace="layout :: footer"></footer>
 </body>
