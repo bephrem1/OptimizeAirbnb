@@ -287,11 +287,11 @@ nav ul li.active, nav ul li:hover {
 }
 
 .actions a, .actions button {
-    color: #b8a6d1;
+    color: #fd5c63;
 }
 
 .delete .button[type=submit] {
-    background:#f2f0f5;
+    background:#fd5c63;
     color:#a29fa6;
     float:right;
     position:relative;
@@ -501,10 +501,10 @@ input[type=text]:focus:not([readonly]) {
 .button {
     margin-right: 1rem;
     display: inline-block;
-    background: #f2f0f5;
+    background: #fd5c63;
     border-radius: 4px;
     border: none;
-    color: #a29fa6;
+    color: #fd5c63;
     line-height: 1.5;
     font-size: 0.9rem;
     padding: 1rem 2rem;
@@ -512,7 +512,7 @@ input[type=text]:focus:not([readonly]) {
 }
 
 .button[type=submit] {
-    background: #896bb3;
+    background: #fd5c63;
     color: #fefefe;
 }
 

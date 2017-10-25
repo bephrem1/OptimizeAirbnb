@@ -6,6 +6,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 import java.util.Map;
@@ -58,10 +60,23 @@ public class ListingController {
         return "/income-estimation";
     }
 
+    @RequestMapping(value = "/income-estimation", method = RequestMethod.POST)
+    public String processIncomeEstimationValue(@RequestParam double latitude, @RequestParam double longitude){
+
+
+        return "redirect:/income-estimation";
+    }
 
 
     @RequestMapping("/price-optimization")
     public String getPriceOptimizationPage(Model model){
+
+        return "/price-optimization";
+    }
+
+    @RequestMapping(value = "/price-optimization", method = RequestMethod.POST)
+    public String processPriceOptimizationValue(@RequestParam double latitude, @RequestParam double longitude){
+
 
         return "/price-optimization";
     }

@@ -4,11 +4,37 @@
 <head th:replace="layout :: head"></head>
 
 <body>
-    <h1>Deliverable 3</h1>
-    <h1>This page will find the Ideal Price Per Night For Max Bookings Based On Area</h1>
-    <h2>Enter your latitude and longitude below</h2>
+    <div th:replace="layout :: nav"></div>
 
+    <h3>Deliverable 3</h3>
+    <h3>This page will find the Ideal Price Per Night For Max Bookings Based On Area</h3>
+    <h3>Enter your latitude and longitude below</h3>
 
+    <!-- TODO:be Condense these inputs into fragments to avoid repeating code -->
+    <!-- TODO:be Make sure that you implement input validation like checking if it's a number and in San Francisco -->
+    <div class="container">
+        <form th:action="@{/price-optimization}" method="post">
+
+            <div class="row">
+                <div class="col s12 l8">
+                    <p>Enter the Latitude: </p><input type="text" id="latitude" name="latitude"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 l8">
+                    <p>Enter the Longitude: </p><input type="text" id="longitude" name="longitude"/>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 l8">
+                    <button type="submit" class="button" text="Estimate Potential Income">Get Optimal Pricing</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
 
     <footer th:replace="layout :: footer"></footer>
     <div th:replace="layout :: scripts"></div>
