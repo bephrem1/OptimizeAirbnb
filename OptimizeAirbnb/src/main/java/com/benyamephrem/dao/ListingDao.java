@@ -17,4 +17,7 @@ public interface ListingDao extends MongoRepository<Listing, String> {
     @Query(value = "{listingLocation.neighborhood:?0}")
     List<Listing> findByNeighborhood(String neighborhood);
 
+    @Query(value = "{propertyLogistics.propertyType:?0}")
+    List<Listing> findByPropertyType(String propertyType);
+
 }

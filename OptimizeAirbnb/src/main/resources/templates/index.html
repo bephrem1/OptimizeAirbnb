@@ -1,109 +1,25 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
-<head th:fragment="head">
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="A simple weather that presents Airbnb data from MongoDB elegantly."/>
-    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/app.css}"/>
-    <title>OptimizeAirbnb</title>
 
-    <!-- //TODO: Consolidate chart scripts into their own .js files for brevity...don't put them all here-->
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-    <script type="text/javascript" th:inline="javascript">
-      google.charts.load("current", {packages:["corechart"]});
-      google.charts.setOnLoadCallback(drawChart);
-      function drawChart() {
-        var data = google.visualization.arrayToDataTable([
-          ['Neighborhood', 'Number Of Listings For This Neighborhood'],
-          ['Bayview',   [[${bayview}]] ],
-          ['Bernal Heights',   [[${bernalheights}]] ],
-          ['Chinatown',   [[${chinatown}]] ],
-          ['Crocker Amazon',   [[${crockeramazon}]] ],
-          ['Diamond Heights',   [[${diamondheights}]] ],
-          ['Downtown/Civic Center',   [[${downtownciviccenter}]] ],
-          ['Excelsior',   [[${excelsior}]] ],
-          ['Financial District',   [[${financialdistrict}]] ],
-          ['Glen Park',   [[${glenpark}]] ],
-          ['Golden Gate Park',   [[${goldengatepark}]] ],
-          ['Haight Ashbury',   [[${haightashbury}]] ],
-          ['Inner Richmond',   [[${innerrichmond}]] ],
-          ['Inner Sunset',   [[${innersunset}]] ],
-          ['Lakeshore',   [[${lakeshore}]] ],
-          ['Marina',   [[${marina}]] ],
-          ['Mission',   [[${mission}]] ],
-          ['Nob Hill',   [[${nobhill}]] ],
-          ['Noe Valley',   [[${noevalley}]] ],
-          ['North Beach',   [[${northbeach}]] ],
-          ['Ocean View',   [[${oceanview}]] ],
-          ['Outer Mission',   [[${outermission}]] ],
-          ['Outer Richmond',   [[${outerrichmond}]] ],
-          ['Outer Sunset',   [[${outersunset}]] ],
-          ['Pacific Heights',   [[${pacificheights}]] ],
-          ['Parkside',   [[${parkside}]] ],
-          ['Potrero Hill',   [[${potrerohill}]] ],
-          ['Presidio',   [[${presidio}]] ],
-          ['Presidio Heights',   [[${presidioheights}]] ],
-          ['Russian Hill',   [[${russianhill}]] ],
-          ['Seacliff',   [[${seacliff}]] ],
-          ['South of Market',   [[${southofmarket}]] ],
-          ['Treasure Island/YBI',   [[${treasureislandybi}]] ],
-          ['Twin Peaks',   [[${twinpeaks}]] ],
-          ['Visitacion Valley',   [[${visitacionvalley}]] ],
-          ['West of Twin Peaks',   [[${westoftwinpeaks}]] ],
-          ['Western Addition',   [[${westernaddition}]] ]
-        ]);
-
-        var options = {
-          title: 'Listing Count By Neighborhood',
-          is3D: true,
-        };
-
-        var chart = new google.visualization.PieChart(document.getElementById('neighborhood_listing_count_chart'));
-        chart.draw(data, options);
-      }
-    </script>
-    <script type="text/javascript" th:inline="javascript">
-    google.charts.load("current", {packages:["corechart"]});
-    google.charts.setOnLoadCallback(drawChart);
-    function drawChart() {
-      var data = google.visualization.arrayToDataTable([
-        ['Name', 'Count', { role: 'style' } ],
-        [ [[${name1}]], [[${nameCount1}]], '#fff200'],
-        [ [[${name2}]], [[${nameCount2}]], '#e8dc0d'],
-        [ [[${name3}]], [[${nameCount3}]], '#c4b213'],
-        [ [[${name4}]], [[${nameCount4}]], '#adaa8e'],
-        [ [[${name5}]], [[${nameCount5}]], '#adab9a'],
-        [ [[${name6}]], [[${nameCount6}]], '#bcbbb1'],
-        [ [[${name7}]], [[${nameCount7}]], '#7f7507'],
-        [ [[${name8}]], [[${nameCount8}]], '#726a0d'],
-        [ [[${name9}]], [[${nameCount9}]], '#5b5405'],
-        [ [[${name10}]], [[${nameCount10}]], '#474207']
-      ]);
-
-      var view = new google.visualization.DataView(data);
-      view.setColumns([0, 1,
-                       { calc: "stringify",
-                         sourceColumn: 1,
-                         type: "string",
-                         role: "annotation" },
-                       2]);
-
-      var options = {
-        title: "Top 10 Names Of Hosts On Airbnb In San Francisco",
-      };
-      var chart = new google.visualization.BarChart(document.getElementById("top_ten_names_barchart"));
-      chart.draw(view, options);
-  }
-  </script>
-
-</head>
+<head th:replace="layout :: head"></head>
 
 <body>
+    <div th:replace="layout :: nav"></div>
+
     <h1>Hello world</h1>
-    <div id="neighborhood_listing_count_chart" style="width: 900px; height: 500px;"></div>
-    <div id="top_ten_names_barchart" style="width: 900px; height: 300px;"></div>
+
+    <h2>This application optimizes Airbnb...wow!!!</h2>
+
+    <h3>Ethiopia</h3>
+    <h3>Ethiopia</h3>
+    <h3>Ethiopia</h3>
+    <h3>Ethiopia</h3>
+    <h3>Ethiopia</h3>
+    <h3>Ethiopia</h3>
+    <h3>Ethiopia</h3>
 
     <footer th:replace="layout :: footer"></footer>
+    <div th:replace="layout :: scripts"></div>
 </body>
 
 </html>

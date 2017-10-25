@@ -17,6 +17,11 @@ public class ListingController {
 
     @RequestMapping("/")
     public String getHomepage(Model model){
+        return "/index";
+    }
+
+    @RequestMapping("/visualize")
+    public String getVisualizationChartsPage(Model model){
         Map<String, Integer> neighborhoodToCountMap = listingService.getNeighborhoodToListingCountMap();
         List<Map.Entry<String,Integer>> top10NamesThatOccur = listingService.findTop10NamesThatOccur();
 
@@ -34,6 +39,6 @@ public class ListingController {
             model.addAttribute("nameCount" + i, top10NamesThatOccur.get(i-1).getValue());
         }
 
-        return "/index";
+        return "/visualize";
     }
 }

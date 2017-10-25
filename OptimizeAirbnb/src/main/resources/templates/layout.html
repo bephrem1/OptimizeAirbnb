@@ -1,6 +1,7 @@
 <!-- This is an html file to house our thymeleaf html fragments for code reuse
      and consolidation of repeated visual elements-->
 
+<!-- TODO:be Remove any unnecessary html and CSS that isn't used or is not necessary-->
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 
@@ -9,21 +10,56 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <meta name="description" content="A simple weather that presents Airbnb data from MongoDB elegantly."/>
 
-    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/app.css}"/>
+    <link rel="icon" th:href="@{/favicon.png}" />
+
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/codrops/css/cs-select.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/codrops/css/cs-skin-border.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" th:href="@{/app.css}" />
+
+    <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 
     <title>OptimizeAirbnb</title>
 </head>
 
 <body>
+
+    <div th:fragment="nav" class="navbar-fixed">
+        <nav>
+            <div class="container">
+                <a th:href="@{/}" class="brand-logo">Optimize<span>.</span>Airbnb</a>
+                <a href="#" data-activates="mobile-nav" class="button-collapse right"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li th:classappend="${#httpServletRequest.servletPath.equals('/visualize') ? 'active' : ''}"><a th:href="@{/visualize}" class="navigation-tab">Visualize</a></li>
+                </ul>
+                <ul id="mobile-nav" class="side-nav">
+                    <li th:classappend="${#httpServletRequest.servletPath.equals('/visualize') ? 'active' : ''}"><a th:href="@{/visualize}" class="navigation-tab">Visualize</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+
     <div th:fragment="flash" th:if="${flash != null}">
         <div class="message">
             <div th:classappend="${#strings.toLowerCase(flash.status)}" th:text="${flash.message}" class="flash"></div>
         </div>
     </div>
-</body>
 
-<footer th:fragment="footer">
-    <!-- Put stuff here -->
-</footer>
+    <footer th:fragment="footer">
+        <div class = "row footer">
+            <h5 class = "text-center">Made with <i class="fa fa-heart-o" aria-hidden="true"></i> in College Park, Maryland | <a href="https://github.com/bephrem1/OptimizeAirbnb" class="github">View this Project on Github <i class="fa fa-github" aria-hidden="true"></i></a></h5>
+        </div>
+    </footer>
+
+    <div th:fragment="scripts">
+        <script th:src="@{/vendor/jquery/jquery-1.11.3.js}"></script>
+        <script th:src="@{/vendor/materialize/js/materialize.js}"></script>
+        <script th:src="@{/vendor/codrops/js/classie.js}"></script>
+        <script th:src="@{/vendor/codrops/js/selectFx.js}"></script>
+        <script th:src="@{/app.js}"></script>
+    </div>
+</body>
 
 </html>
