@@ -18,10 +18,10 @@ public class ListingController {
     public String getHomepage(Model model){
         Map<String, Integer> neighborhoodToCountMap = listingService.getNeighborhoodToListingCountMap();
 
-        //TODO:be This is a good way to condense the passage of data to view? Odd how the view must be rigid though with neighborhood names...revise
+        //TODO:be This is a good way to condense the passage of data to view? Odd how the view must be rigid with neighborhood names...revise
         //Populate model with Neighborhood Listing Count attributes to pass to the view layer
         for(Map.Entry<String, Integer> entry : neighborhoodToCountMap.entrySet()){
-            model.addAttribute(entry.getKey().replace("[ /]", "").toLowerCase(), entry.getValue());
+            model.addAttribute(entry.getKey().toLowerCase().replaceAll("[ /]", ""), entry.getValue());
         }
 
         return "/index";
