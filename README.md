@@ -47,12 +47,16 @@ operations. Having *thousands* upon *thousands* of listings makes data processin
 -There are a lot of places where things are ineffecient, hacked together, and unsustainable. I'd like to fix
 these moving forward and have marked them with TODO's </br>
 
-## Known Errors </br>
+## Known Errors/Bugs </br>
 -I may have only imported part of the excel sheet but I feel like the numbers are off on some charts. I believe
 it is because my computer can't open the full excel document so it only loads part of it (I get that message sometimes
 from Excel). Either way no matter the size of the data the DatabaseSeeder still will work with an excel file of any size
 and nothing will change besides the numbers the charts show on the frontend (as long as column names match up to what's
 in the class)</br>
+
+-Some charts are draw conclusions that can't totally be made exactly. Like the top 10 names in San Francisco bar chart...
+in retrospect I wonder what if a host has multiple listings? (which is likely) Numbers need to be adjusted based off of
+that. I will go back and correct this.</br>
 
 ## Built With
 
