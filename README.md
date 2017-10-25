@@ -3,6 +3,15 @@ A SpringBoot Web Application That Optimizes An Airbnb Listing <br>
 
 For The Capital One Software Engineering Summit 2nd Round Challenge <br>
 
+### Progress:
+Deliverable 1: Visualize the data - FINISHED
+Deliverable 2: Price estimation - IN PROGRESS
+Deliverable 3: Bookings optimization - NOT STARTED
+
+Bonus 1: Animate - NOT STARTED
+Bonus 2: Investment - NOT STARTED
+Bonus 2: Popularity - NOT STARTED
+
 ### Description:
 Lorem Ipsum
 
