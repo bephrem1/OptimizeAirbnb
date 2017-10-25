@@ -66,3 +66,4 @@ that. I will go back and correct this.</br>
 * [Google Charts](https://developers.google.com/chart/) - Google Charts For Displaying Data
 
 ## Acknowledgments
+* [Giflib Hibernate by TeamTreehouse](https://github.com/treehouse/giflib-hibernate) - Visual Asset Files and Design Scaffold
