@@ -70,3 +70,4 @@ that. I will go back and correct this.</br>
 
 ## Acknowledgments
 * [Giflib Hibernate by TeamTreehouse](https://github.com/treehouse/giflib-hibernate) - Visual Asset Files and Design Scaffold
+* [Michael Weinberger](https://github.com/mwein99) - Footer Design Code
