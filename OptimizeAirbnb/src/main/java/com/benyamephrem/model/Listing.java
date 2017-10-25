@@ -10,8 +10,7 @@ public class Listing {
     @Id
     private String id; //The id MongoDB will assign each index
 
-    //TODO:be Do we need this to be indexed? Assess what needs to be indexed here and what doesn't based on queries you write later
-    @Indexed(direction = IndexDirection.ASCENDING)
+    //TODO:be Assess what needs to be indexed here (and in what order) based on queries you write later for efficiency
     private String listingId; //The listing ID indexed in ascending order
     private String hostId; //The host ID indexed in ascending order
 

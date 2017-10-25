@@ -1,5 +1,6 @@
 package com.benyamephrem.web.controller;
 
+import com.benyamephrem.model.Listing;
 import com.benyamephrem.service.ListingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -22,9 +23,11 @@ public class ListingController {
 
     @RequestMapping("/visualize")
     public String getVisualizationChartsPage(Model model){
+        List<Listing> listings = listingService.findAll();
+
         Map<String, Integer> neighborhoodToCountMap = listingService.getNeighborhoodToListingCountMap();
-        List<Map.Entry<String,Integer>> top10NamesThatOccur = listingService.findTop10NamesThatOccur();
-        List<Map.Entry<String,Integer>> top3PropertyTypesThatOccur = listingService.findTop3PropertyTypesThatOccur();
+        List<Map.Entry<String,Integer>> top10NamesThatOccur = listingService.findTop10NamesThatOccur(listings);
+        List<Map.Entry<String,Integer>> top3PropertyTypesThatOccur = listingService.findTop3PropertyTypesThatOccur(listings);
 
         //TODO:be This is a good way to condense the passage of data to view? Odd how the view must be rigid with neighborhood names...revise
         //Populate model with Neighborhood Listing Count attributes to pass to the view layer

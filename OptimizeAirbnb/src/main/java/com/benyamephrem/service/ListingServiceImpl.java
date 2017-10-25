@@ -22,8 +22,7 @@ public class ListingServiceImpl implements ListingService{
 
     //TODO:be This is the naive way to achieve this I feel. Shouldn't the database be doing the heavy lifting on query?
     @Override
-    public List<Map.Entry<String,Integer>> findTop10NamesThatOccur() {
-        List<Listing> listings = findAll();
+    public List<Map.Entry<String,Integer>> findTop10NamesThatOccur(List<Listing> listings) {
         Map<String, Integer> namesAndCountMap = new HashMap<>();
 
         //TODO:be This map populating loop is verbose. Refactor this to a Java 8 stream implementation if you have time.
@@ -87,9 +86,8 @@ public class ListingServiceImpl implements ListingService{
     }
 
     @Override
-    public List<Map.Entry<String,Integer>> findTop3PropertyTypesThatOccur() {
+    public List<Map.Entry<String,Integer>> findTop3PropertyTypesThatOccur(List<Listing> listings) {
         Map<String, Integer> propertyTypeCountMap = new HashMap<>();
-        List<Listing> listings = findAll();
 
         //TODO:be This map populating loop is verbose. Refactor this to a Java 8 stream implementation if you have time.
         for(Listing listing : listings) {
