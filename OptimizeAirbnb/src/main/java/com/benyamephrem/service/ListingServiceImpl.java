@@ -105,4 +105,15 @@ public class ListingServiceImpl implements ListingService{
         return results.subList(0,3);
     }
 
+    //TODO:be Cache each new result here as well to save database calls!!!
+    @Override
+    public double getProjectedIncomeBasedOnNeighborhood(Neighborhood neighborhood) {
+        double projectedIncome = 0.0;
+        List<Listing> neighborhoodLitings = findByNeighborhood(neighborhood.getName());
+
+
+
+        return projectedIncome;
+    }
+
 }

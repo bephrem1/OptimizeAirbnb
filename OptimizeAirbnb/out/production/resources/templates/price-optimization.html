@@ -6,13 +6,17 @@
 <body>
     <div th:replace="layout :: nav"></div>
 
-    <h3>Deliverable 3</h3>
-    <h3>This page will find the Ideal Price Per Night For Max Bookings Based On Area</h3>
-    <h3>Enter your latitude and longitude below</h3>
-
     <!-- TODO:be Condense these inputs into fragments to avoid repeating code -->
     <!-- TODO:be Make sure that you implement input validation like checking if it's a number and in San Francisco -->
     <div class="container">
+
+        <div class="row">
+            <div class="col s12">
+                <h2>Enter your latitude and longitude below</h2>
+                <div class="subtitle">This page will find the Ideal Price Per Night For Max Bookings Based On Area.</div>
+            </div>
+        </div>
+
         <form th:action="@{/price-optimization}" method="post">
 
             <div class="row">

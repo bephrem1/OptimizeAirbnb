@@ -1,7 +1,9 @@
 package com.benyamephrem.web.controller;
 
 import com.benyamephrem.model.Listing;
+import com.benyamephrem.model.constants.Neighborhood;
 import com.benyamephrem.service.ListingService;
+import com.benyamephrem.utils.Locator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,6 +22,7 @@ public class ListingController {
 
     @RequestMapping("/")
     public String getHomepage(Model model){
+
         return "/index";
     }
 
@@ -62,7 +65,8 @@ public class ListingController {
 
     @RequestMapping(value = "/income-estimation", method = RequestMethod.POST)
     public String processIncomeEstimationValue(@RequestParam double latitude, @RequestParam double longitude){
-
+        Neighborhood neighborhood = Locator.findClosestNeighborhood(latitude, longitude);
+        
 
         return "redirect:/income-estimation";
     }

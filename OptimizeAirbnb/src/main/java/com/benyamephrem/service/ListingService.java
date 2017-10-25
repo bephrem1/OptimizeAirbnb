@@ -1,6 +1,7 @@
 package com.benyamephrem.service;
 
 import com.benyamephrem.model.Listing;
+import com.benyamephrem.model.constants.Neighborhood;
 
 import java.util.List;
 import java.util.Map;
@@ -15,4 +16,5 @@ public interface ListingService {
     Map<String, Integer> getNeighborhoodToListingCountMap();
     List<Listing> findByPropertyType(String propertyType);
     List<Map.Entry<String,Integer>> findTop3PropertyTypesThatOccur(List<Listing> listings);
+    double getProjectedIncomeBasedOnNeighborhood(Neighborhood neighborhood);
 }
