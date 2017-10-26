@@ -15,6 +15,15 @@ Bonus 2: Popularity - NOT STARTED </br>
 ### Description:
 Lorem Ipsum
 
+### How Data Flows:
+**Overview:** This data respects the MVC design pattern (Model View Controller) and common OO design patterns (Single Responsibilty Principle, Encapsulation, etc.). Data is seeded to the MongoDB database that stores entries as nested objects with "leaves" being objects children to the parent object (In this case the parent node is the Listing class). DAO classes are data access classes meaning their only responsibility is to get data from the database based on queries I write in Mongo QUery Language. DAO's then pass the results to the Service layer where calculations are made and that data is processed to make conclusions. Next that data is passed to the Controllers classes that are the interface between the user and and underlying operations the application can perform. Finally, it is passed by the controllers in a ModelMap to the view rendered by the Thymeleaf templating engine. This allows us to display data dynamically using placeholders. </br>
+
+**In Short:** </br>
+MongoDB Database -> ListingDAO -> ListingService -> ListingController -> Homepage (rendered with Thymeleaf)
+
+**Why This Is Important:** </br>
+This allows each layer to be detangled from other layer that have different jobs. This makes debugging much easier and keeps everything organized. Problems that occur in the Controller for example can now be easily retraced to a deeper layer down the line and fixed quickly.
+
 ## Skills Utilized </br>
 -MVC Layered Application Design </br>
 -Layered Unit Testing </br>
