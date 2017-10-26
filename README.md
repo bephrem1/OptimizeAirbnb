@@ -59,7 +59,7 @@ operations. Having *thousands* upon *thousands* of listings makes data processin
 -There are a lot of places where things are ineffecient, hacked together, and unsustainable. I'd like to fix
 these moving forward and have marked them with TODO's </br>
 
-## Known Errors/Bugs </br>
+## Known Errors </br>
 -I may have only imported part of the excel sheet but I feel like the numbers are off on some charts. I believe
 it is because my computer can't open the full excel document so it only loads part of it (I get that message sometimes
 from Excel). Either way no matter the size of the data the DatabaseSeeder still will work with an excel file of any size
@@ -69,6 +69,10 @@ in the class)</br>
 -Some charts are draw conclusions that can't totally be made exactly. Like the top 10 names in San Francisco bar chart...
 in retrospect I wonder what if a host has multiple listings? (which is likely) Numbers need to be adjusted based off of
 that. I will go back and correct this.</br>
+
+## Known Bugs </br>
+
+-The Price Estimation page does not release redirect attribute carrying result back to the page that called POST on its own URI. Review this and release the attributes if they exist in the GET method.
 
 ## Built With
 
