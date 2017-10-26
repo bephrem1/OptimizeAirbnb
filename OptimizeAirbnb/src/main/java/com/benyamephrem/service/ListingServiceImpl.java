@@ -3,6 +3,7 @@ package com.benyamephrem.service;
 import com.benyamephrem.dao.ListingDao;
 import com.benyamephrem.model.Listing;
 import com.benyamephrem.model.constants.Neighborhood;
+import com.benyamephrem.utils.DoubleComparator;
 import com.benyamephrem.utils.EntryComparator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -130,10 +131,10 @@ public class ListingServiceImpl implements ListingService{
     }
 
     //TODO:be Is Pareto's Principle the best idea to use here. I mean...20:80 is pretty pervasive statistically
-    //TODO:be This method is really sloppy and text heavy, revise variable names and clean it up
+    //TODO:be This method is really sloppy and text heavy, revise variable names and clean it up. It also only looks at one factor which is short sighted
     @Override
     public double getOptimizedDailyBookingPrice(String neighborhood) {
-        double optimizedBookingPrice = 0.0;
+        double optimizedBookingPriceSum = 0.0;
         Map<Double, Double> priceToAvaliability = new HashMap<>();
 
         List<Listing> neighborhoodListings = listingDao.findByNeighborhood(neighborhood);
@@ -155,10 +156,17 @@ public class ListingServiceImpl implements ListingService{
         }
 
         //Sort the map based on the days the listing is filled weekly. The closer the # is to 7 (a full week) the better
-        //We then take the top 20 of listings from the sorted list because these are the ones that pull 80% of the income overall
+        //We then take the top 20% of listings from the sorted list because these are the ones that pull 80% of the income overall
+        List<Map.Entry<Double, Double>> results = new ArrayList<>(priceToAvaliability.entrySet());
+        results.sort(new DoubleComparator());
 
+        //Find average of the top 20% listings with the best fill rates
+        List<Map.Entry<Double, Double>> subList = results.subList(0, (int) Math.round(neighborhoodListings.size() * .2));
+        for(Map.Entry<Double, Double> entry : subList){
+            optimizedBookingPriceSum += entry.getKey();
+        }
 
-        return optimizedBookingPrice;
+        return optimizedBookingPriceSum / subList.size();
     }
 
     //TODO:be Revise the accuracy of this calculation, it seems off...

@@ -88,8 +88,13 @@ public class ListingController {
     }
 
     @RequestMapping(value = "/price-optimization", method = RequestMethod.POST)
-    public String processPriceOptimizationValue(@RequestParam double latitude, @RequestParam double longitude){
+    public String processPriceOptimizationValue(@RequestParam double latitude, @RequestParam double longitude, RedirectAttributes redirectAttributes){
         Neighborhood neighborhood = Locator.findClosestNeighborhood(latitude, longitude);
+
+        double result = listingService.getOptimizedDailyBookingPrice(neighborhood.getName());
+
+        //Add optimized price to the model map
+        redirectAttributes.addFlashAttribute("optimizedDailyBookingPrice", NumberUtil.roundHundredths(result));
 
         return "/price-optimization";
     }

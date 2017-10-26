@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 
-    <title>OptimizeAirbnb | Income Estimation</title>
+    <title>OptimizeAirbnb | Optimize Price</title>
 
     <!-- //TODO: Consolidate chart scripts into their own .js files for brevity...don't put them all here-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -33,6 +33,7 @@
 
         <div class="row">
             <div class="col s12">
+                <h1>Listing Price Optimizer</h1>
                 <h2>Enter your latitude and longitude below</h2>
                 <div class="subtitle">This page will find the Ideal Price Per Night For Max Bookings Based On Area.</div>
             </div>
@@ -59,6 +60,13 @@
             </div>
 
         </form>
+
+        
+            <h3>The optimized price for your booking per day should be: </h3>
+            <p th:text="${optimizedDailyBookingPrice}"></p>
+
+
+
     </div>
 
     <footer th:replace="layout :: footer"></footer>
