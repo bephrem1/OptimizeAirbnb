@@ -21,8 +21,6 @@ public class Locator {
                 closestDistance = distance;
                 closestNeighborhood = neighborhood;
             }
-
-            System.out.println("Name: " + neighborhood.getName() + " Distance From Coordinates: " + distance);
         }
 
         return closestNeighborhood;

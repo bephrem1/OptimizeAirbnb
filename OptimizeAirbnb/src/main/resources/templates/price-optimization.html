@@ -17,7 +17,7 @@
     <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
 
-    <title>OptimizeAirbnb | Income Estimation</title>
+    <title>OptimizeAirbnb | Optimize Price</title>
 
     <!-- //TODO: Consolidate chart scripts into their own .js files for brevity...don't put them all here-->
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
@@ -59,6 +59,13 @@
             </div>
 
         </form>
+
+        <div th:if="${optimizedBookingPrice != null}">
+            <h3>The optimized price for your booking per day should be: </h3>
+            <p th:text="${optimizedBookingPrice}"></p>
+        </div>
+
+
     </div>
 
     <footer th:replace="layout :: footer"></footer>

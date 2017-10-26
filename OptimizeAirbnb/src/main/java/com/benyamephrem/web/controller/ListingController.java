@@ -4,6 +4,7 @@ import com.benyamephrem.model.Listing;
 import com.benyamephrem.model.constants.Neighborhood;
 import com.benyamephrem.service.ListingService;
 import com.benyamephrem.utils.Locator;
+import com.benyamephrem.utils.NumberUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -70,10 +71,10 @@ public class ListingController {
                 .getWeeklyIncomeBasedOnNeighborhoodAndPropertyType(neighborhood.getName());
 
         //Add results from calculation to redirect so that person can see data for only one redirect then resets
-        redirectAttributes.addFlashAttribute("houseEstimation", map.get("House"));
-        redirectAttributes.addFlashAttribute("apartmentEstimation", map.get("Apartment"));
-        redirectAttributes.addFlashAttribute("condominiumEstimation", map.get("Condominium"));
-        redirectAttributes.addFlashAttribute("listingsProcessed", map.get("listingsProcessed"));
+        redirectAttributes.addFlashAttribute("houseEstimation", NumberUtil.roundHundredths(map.get("House")));
+        redirectAttributes.addFlashAttribute("apartmentEstimation", NumberUtil.roundHundredths(map.get("Apartment")));
+        redirectAttributes.addFlashAttribute("condominiumEstimation", NumberUtil.roundHundredths(map.get("Condominium")));
+        redirectAttributes.addFlashAttribute("listingsProcessed", Math.round(map.get("listingsProcessed")));
         redirectAttributes.addFlashAttribute("neighborhood", neighborhood.getName());
 
         return "redirect:/income-estimation";

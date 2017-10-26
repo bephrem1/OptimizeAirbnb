@@ -26,7 +26,7 @@
     google.charts.setOnLoadCallback(drawChart);
     function drawChart() {
       var data = google.visualization.arrayToDataTable([
-        ['Type', 'Estimated Income', { role: 'style' } ],
+        ['Type', 'Estimated Weekly Income', { role: 'style' } ],
         [ 'House', [[${houseEstimation}]], '#425ff4'],
         [ 'Apartment', [[${apartmentEstimation}]], '#a57e1a'],
         [ 'Condominium', [[${condominiumEstimation}]], '#af2a05']
@@ -41,7 +41,7 @@
                        2]);
 
       var options = {
-        title: "Income Estimation Based On The Area You Input",
+        title: "Weekly Income Estimation For Listings In [[${neighborhood}]]",
         width: 600,
         height: 400,
         bar: {groupWidth: "95%"},
@@ -89,17 +89,19 @@
             </div>
 
         </form>
-    </div>
 
-    <div th:if="${houseEstimation != null}">
-        <h3>Your neighborhood appears to be close to:</h3>
-        <p th:text="${neighborhood}"></p>
 
-        <h3>Here is your potential income based on the type of property you list in your area:</h3>
-        <div id="income_projection" style="width: 900px; height: 300px;"></div>
+        <div th:if="${houseEstimation != null}">
+            <h3>Your neighborhood appears to be close to:</h3>
+            <p th:text="${neighborhood}"></p>
 
-        <h4>We took into account <p th:text="${listingsProcessed}"></p> listings in your area
-        for this calculation.</h4>
+            <h4 class="chart">We took into account the <a th:text="${listingsProcessed}"></a> listings in your area with existent income for this calculation.</h4>
+
+            <h3>Here is your potential income based on the type of property you list in your area:</h3>
+            <div id="income_projection" style="width: 450px; height: 150px;"></div>
+
+        </div>
+
     </div>
 
     <footer th:replace="layout :: footer"></footer>
