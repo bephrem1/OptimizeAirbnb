@@ -70,6 +70,8 @@ in the class)</br>
 in retrospect I wonder what if a host has multiple listings? (which is likely) Numbers need to be adjusted based off of
 that. I will go back and correct this.</br>
 
+-The neighborhood enum is what is used to find people's neighborhood based on what latitude and longitude is passed in. Some neighborhood locations don't match up because of minor descrepencies between what I pulled from Google Maps and the literal location in the excel spreadsheet. I'm still thinking of what would be the best solution here.</br>
+
 ## Known Bugs </br>
 
 -The Price Estimation page does not release redirect attribute carrying result back to the page that called POST on its own URI. Review this and release the attributes if they exist in the GET method.
