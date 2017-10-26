@@ -89,7 +89,7 @@ public class ListingController {
 
     @RequestMapping(value = "/price-optimization", method = RequestMethod.POST)
     public String processPriceOptimizationValue(@RequestParam double latitude, @RequestParam double longitude){
-
+        Neighborhood neighborhood = Locator.findClosestNeighborhood(latitude, longitude);
 
         return "/price-optimization";
     }

@@ -18,4 +18,5 @@ public interface ListingService {
     List<Map.Entry<String,Integer>> findTop3PropertyTypesThatOccur(List<Listing> listings);
     List<Listing> findByNeighborhoodAndPropertyType(String neighborhood, String propertyType);
     Map<String, Double> getWeeklyIncomeBasedOnNeighborhoodAndPropertyType(String neighborhood);
+    double getOptimizedDailyBookingPrice(String neighborhood);
 }

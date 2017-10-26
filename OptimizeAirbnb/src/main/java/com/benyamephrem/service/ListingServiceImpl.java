@@ -129,6 +129,38 @@ public class ListingServiceImpl implements ListingService{
         return incomeByPropertyTypeMap;
     }
 
+    //TODO:be Is Pareto's Principle the best idea to use here. I mean...20:80 is pretty pervasive statistically
+    //TODO:be This method is really sloppy and text heavy, revise variable names and clean it up
+    @Override
+    public double getOptimizedDailyBookingPrice(String neighborhood) {
+        double optimizedBookingPrice = 0.0;
+        Map<Double, Double> priceToAvaliability = new HashMap<>();
+
+        List<Listing> neighborhoodListings = listingDao.findByNeighborhood(neighborhood);
+
+        //Populate the priceToAvaliability map
+        for (Listing listing : neighborhoodListings){
+
+            double dailyPrice = listing.getListingFinancials().getDailyPrice();
+
+            //Populate the map with the following parameters (pricePerNight, daysListingIsFilledWeekly)
+            if(listing.getListingAvaliabilityInPast30Days() != 0){
+                priceToAvaliability.put(dailyPrice, (double) ((30 - listing.getListingAvaliabilityInPast30Days()) / 7));
+            } else if(listing.getListingAvaliabilityInPast60Days() != 0){
+                priceToAvaliability.put(dailyPrice, (double) ((60 - listing.getListingAvaliabilityInPast60Days()) / 7));
+            } else if(listing.getListingAvaliabilityInPast90Days() != 0){
+                priceToAvaliability.put(dailyPrice, (double) ((90 - listing.getListingAvaliabilityInPast90Days()) / 7));
+            }
+
+        }
+
+        //Sort the map based on the days the listing is filled weekly. The closer the # is to 7 (a full week) the better
+        //We then take the top 20 of listings from the sorted list because these are the ones that pull 80% of the income overall
+
+
+        return optimizedBookingPrice;
+    }
+
     //TODO:be Revise the accuracy of this calculation, it seems off...
     private double calculateAverageIncomePerListing(List<Listing> listings) {
         //TODO:be Make sure this accounts for minimum and maximum nights the listings allows as well...that matters in calculations

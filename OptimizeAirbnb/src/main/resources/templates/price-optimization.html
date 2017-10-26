@@ -33,6 +33,7 @@
 
         <div class="row">
             <div class="col s12">
+                <h1>Listing Price Optimizer</h1>
                 <h2>Enter your latitude and longitude below</h2>
                 <div class="subtitle">This page will find the Ideal Price Per Night For Max Bookings Based On Area.</div>
             </div>
@@ -60,9 +61,9 @@
 
         </form>
 
-        <div th:if="${optimizedBookingPrice != null}">
+        <div th:if="${optimizedDailyBookingPrice != null}">
             <h3>The optimized price for your booking per day should be: </h3>
-            <p th:text="${optimizedBookingPrice}"></p>
+            <p th:text="${optimizedDailyBookingPrice}"></p>
         </div>
 
 
