@@ -20,4 +20,8 @@ public interface ListingDao extends MongoRepository<Listing, String> {
     @Query(value = "{propertyLogistics.propertyType:?0}")
     List<Listing> findByPropertyType(String propertyType);
 
+    //Query Mongo with an AND statement so both fields must be present to end up in results list
+    @Query(value = "{ $and: [ { 'listingLocation.neighborhood' : ?0 }, { 'propertyLogistics.propertyType' : ?1 } ] }")
+    List<Listing> findByNeighborhoodAndPropertyType(String neighborhood, String propertyType);
+
 }

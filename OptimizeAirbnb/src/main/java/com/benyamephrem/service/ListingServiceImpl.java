@@ -105,15 +105,62 @@ public class ListingServiceImpl implements ListingService{
         return results.subList(0,3);
     }
 
-    //TODO:be Cache each new result here as well to save database calls!!!
     @Override
-    public double getProjectedIncomeBasedOnNeighborhood(Neighborhood neighborhood) {
-        double projectedIncome = 0.0;
-        List<Listing> neighborhoodLitings = findByNeighborhood(neighborhood.getName());
+    public List<Listing> findByNeighborhoodAndPropertyType(String neighborhood, String propertyType) {
+        return listingDao.findByNeighborhoodAndPropertyType(neighborhood, propertyType);
+    }
+
+    //TODO:be Cache each new result here as well to save database calls!
+    //TODO: This is very verbose, inefficient, slow, and messy. Revise with Java 8 implementation.
+    @Override
+    public Map<String, Double> getWeeklyIncomeBasedOnNeighborhoodAndPropertyType(String neighborhood) {
+        Map<String, Double> incomeByPropertyTypeMap = new HashMap<>();
+
+        List<Listing> houseListings = listingDao.findByNeighborhoodAndPropertyType(neighborhood, "House");
+        List<Listing> apartmentLitings = listingDao.findByNeighborhoodAndPropertyType(neighborhood, "Apartment");
+        List<Listing> condoLitings = listingDao.findByNeighborhoodAndPropertyType(neighborhood, "Condominium");
+
+        incomeByPropertyTypeMap.put("House", calculateAverageIncomePerListing(houseListings));
+        incomeByPropertyTypeMap.put("Apartment", calculateAverageIncomePerListing(apartmentLitings));
+        incomeByPropertyTypeMap.put("Condominium", calculateAverageIncomePerListing(condoLitings));
 
 
+        return incomeByPropertyTypeMap;
+    }
 
-        return projectedIncome;
+    //TODO:be Revise the accuracy of this calculation, it seems off...
+    private double calculateAverageIncomePerListing(List<Listing> listings) {
+        //TODO:be Make sure this accounts for minimum and maximum nights the listings allows as well...that matters in calculations
+        //Find the days per week that the listing's property is filled based on available data provided to us that exists...we want the most recent data
+        double incomeRunningSum = 0.0;
+
+        for(Listing listing : listings){
+
+            double daysFilledPerWeek = 0.0; //Default value
+            double listingPossibleAverageWeeklyRevenue = 0.0;
+
+            if(listing.getListingAvaliabilityInPast30Days() != 0){
+                //30 - daysListingAvaliable = daysListingIsUnavaliable <---- This means someone is staying there at the time meaning $$$
+                daysFilledPerWeek = ((30 - listing.getListingAvaliabilityInPast30Days()) / 7);
+            } else if(listing.getListingAvaliabilityInPast60Days() != 0){
+                daysFilledPerWeek = ((60 - listing.getListingAvaliabilityInPast60Days()) / 7);
+            } else if(listing.getListingAvaliabilityInPast90Days() != 0){
+                daysFilledPerWeek = ((90 - listing.getListingAvaliabilityInPast90Days()) / 7);
+            }
+
+            //Get weekly prices and if that doesn't exist then get the daily price * 7 as if someone stayed 7 days
+            if(listing.getListingFinancials().getWeeklyPrice() != 0){
+                listingPossibleAverageWeeklyRevenue = listing.getListingFinancials().getWeeklyPrice() +
+                        listing.getListingFinancials().getCleaningFee();
+            } else if (listing.getListingFinancials().getDailyPrice() != 0){
+                listingPossibleAverageWeeklyRevenue = (listing.getListingFinancials().getDailyPrice()*7) +
+                        listing.getListingFinancials().getCleaningFee();
+            }
+
+            incomeRunningSum += daysFilledPerWeek * (listingPossibleAverageWeeklyRevenue/7); //Add this listing's project weekly income to running sum
+        }
+
+        return incomeRunningSum / listings.size();
     }
 
 }
