@@ -41,7 +41,7 @@
                        2]);
 
       var options = {
-        title: "Most Frequently Listed Property Types In San Francisco",
+        title: "Income Estimation Based On The Area You Input",
         width: 600,
         height: 400,
         bar: {groupWidth: "95%"},
@@ -92,7 +92,14 @@
     </div>
 
     <div th:if="${houseEstimation != null}">
+        <h3>Your neighborhood appears to be close to:</h3>
+        <p th:text="${neighborhood}"></p>
+
+        <h3>Here is your potential income based on the type of property you list in your area:</h3>
         <div id="income_projection" style="width: 900px; height: 300px;"></div>
+
+        <h4>We took into account <p th:text="${listingsProcessed}"></p> listings in your area
+        for this calculation.</h4>
     </div>
 
     <footer th:replace="layout :: footer"></footer>

@@ -15,11 +15,14 @@ public class Locator {
         Neighborhood[] neighborhoods = Neighborhood.class.getEnumConstants();
 
         for(Neighborhood neighborhood : neighborhoods){
-            double distance = distance(latitude, longitude, neighborhood.getLatitude(),
-                    neighborhood.getLongitude(), 0,0);
+            double distance = distance(neighborhood.getLatitude(),
+                    latitude, neighborhood.getLongitude(), longitude,  0,0);
             if(distance < closestDistance){
+                closestDistance = distance;
                 closestNeighborhood = neighborhood;
             }
+
+            System.out.println("Name: " + neighborhood.getName() + " Distance From Coordinates: " + distance);
         }
 
         return closestNeighborhood;

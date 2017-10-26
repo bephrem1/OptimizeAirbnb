@@ -2,6 +2,7 @@
 
 body {
     font-family: 'varela round', sans-serif;
+    height: 100%;
 }
 
 h2 {
@@ -96,6 +97,7 @@ nav ul li.active, nav ul li:hover {
 .footer{
         background:#fd5c63;
         color:white;
+        padding-top: 1em
 }
 
 .github{

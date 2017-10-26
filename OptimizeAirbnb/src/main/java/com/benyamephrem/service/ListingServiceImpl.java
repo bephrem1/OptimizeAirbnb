@@ -123,6 +123,7 @@ public class ListingServiceImpl implements ListingService{
         incomeByPropertyTypeMap.put("House", calculateAverageIncomePerListing(houseListings));
         incomeByPropertyTypeMap.put("Apartment", calculateAverageIncomePerListing(apartmentLitings));
         incomeByPropertyTypeMap.put("Condominium", calculateAverageIncomePerListing(condoLitings));
+        incomeByPropertyTypeMap.put("listingsProcessed", (double) (houseListings.size() + apartmentLitings.size() + condoLitings.size()));
 
 
         return incomeByPropertyTypeMap;

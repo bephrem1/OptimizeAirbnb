@@ -59,6 +59,7 @@ public class ListingController {
 
     @RequestMapping("/income-estimation")
     public String getIncomeEstimationPage(Model model){
+
         return "/income-estimation";
     }
 
@@ -68,9 +69,12 @@ public class ListingController {
         Map<String, Double> map = listingService
                 .getWeeklyIncomeBasedOnNeighborhoodAndPropertyType(neighborhood.getName());
 
+        //Add results from calculation to redirect so that person can see data for only one redirect then resets
         redirectAttributes.addFlashAttribute("houseEstimation", map.get("House"));
         redirectAttributes.addFlashAttribute("apartmentEstimation", map.get("Apartment"));
         redirectAttributes.addFlashAttribute("condominiumEstimation", map.get("Condominium"));
+        redirectAttributes.addFlashAttribute("listingsProcessed", map.get("listingsProcessed"));
+        redirectAttributes.addFlashAttribute("neighborhood", neighborhood.getName());
 
         return "redirect:/income-estimation";
     }
