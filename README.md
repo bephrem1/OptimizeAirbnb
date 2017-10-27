@@ -64,21 +64,20 @@ operations. Having *thousands* upon *thousands* of listings makes data processin
 -Using Google Charts to display the data dynamically </br>
 
 ## What I Don't Like About My Project </br>
--There are a lot of places where things are ineffecient, hacked together, and unsustainable. I'd like to fix
-these moving forward and have marked them with TODO's </br>
+-There are a lot of places where things are ineffecient, hacked together, and unsustainable. There are places with heavy/repeated database calls that can be moved around, many verbose expressions that can be simplified, etc. I'd like to fix these moving forward and have marked them with TODO's </br>
 
 ## Known Errors </br>
 -I may have only imported part of the excel sheet but I feel like the numbers are off on some charts. I believe
 it is because my computer can't open the full excel document so it only loads part of it (I get that message sometimes
 from Excel). Either way no matter the size of the data the DatabaseSeeder still will work with an excel file of any size
 and nothing will change besides the numbers the charts show on the frontend (as long as column names match up to what's
-in the class)</br>
+in the class) </br>
 
 -Some charts are draw conclusions that can't totally be made exactly. Like the top 10 names in San Francisco bar chart...
 in retrospect I wonder what if a host has multiple listings? (which is likely) Numbers need to be adjusted based off of
-that. I will go back and correct this.</br>
+that. I will go back and correct this and these are marked by TODO's</br>
 
--The neighborhood enum is what is used to find people's neighborhood based on what latitude and longitude is passed in. Some neighborhood locations don't match up because of minor descrepencies between what I pulled from Google Maps and the literal location in the excel spreadsheet. I'm still thinking of what would be the best solution here.</br>
+-The neighborhood enum is what is used to find people's neighborhood based on what latitude and longitude is passed in. Some neighborhood locations don't match up because of minor descrepencies between what I pulled from Google Maps and the literal location in the excel spreadsheet. I'm still thinking of what would be the best solution here but either way the match is very close or exact in most cases. </br>
 
 ## Known Bugs </br>
 
