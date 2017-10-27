@@ -15,12 +15,20 @@ Bonus 2: Popularity - NOT STARTED </br>
 ### Description:
 Lorem Ipsum
 
+### How Data Flows:
+**Overview:** This application respects the MVC design pattern (Model View Controller) and common OO design patterns (Single Responsibilty Principle, Encapsulation, etc.). Data is seeded to the MongoDB database that stores entries as nested objects with "leaves" being objects children to the parent object (In this case the parent node is the Listing class). DAO classes are data access classes meaning their only responsibility is to get data from the database based on queries I write in Mongo QUery Language. DAO's then pass the results to the Service layer where calculations are made and that data is processed to make conclusions. Next that data is passed to the Controllers classes that are the interface between the user and and underlying operations the application can perform. Finally, it is passed by the controllers in a ModelMap to the view rendered by the Thymeleaf templating engine. This allows us to display data dynamically using placeholders. </br>
+
+**In Short:** </br>
+MongoDB Database -> ListingDAO (extending Spring MongoRepository) -> ListingService (Implementation) -> ListingController -> Homepage (rendered with Thymeleaf)
+
+**Why This Is Important:** </br>
+This allows each layer to be detangled from other layer that have different jobs. This makes debugging much easier and keeps everything organized. Problems that occur in the Controller for example can now be easily retraced to a deeper layer down the line and fixed quickly.
+
 ## Skills Utilized </br>
 -MVC Layered Application Design </br>
 -Layered Unit Testing </br>
 -Java 8 </br>
 -Spring Framework (Spring Boot)</br>
--Spring Security </br>
 -Spring Data </br>
 -MongoDB </br>
 -Google Charts </br>
@@ -42,7 +50,7 @@ to the idea of representing objects in a tree-like pattern (in this case the cen
 ## Things Learned From This Project </br>
 -Using MongoDB and Spring Data MongoDB, previous to this project I had only worked with RDBMS systems like H2 </br>
 
--How to seed a database and set-up data transfer objects (DTO's) </br>
+-How to seed a database </br>
 
 -Using Git with IntelliJ. I was really uncomfortable with UNIX commands and Git but now I feel a lot more
 comfortable on the command line starting MongoDB, navigating around, staging commits, and pushing to remotes </br>
