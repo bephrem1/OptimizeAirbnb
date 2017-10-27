@@ -1,4 +1,4 @@
-package com.benyamephrem.web.controller;
+package com.benyamephrem;
 
 import com.benyamephrem.model.Listing;
 import com.benyamephrem.model.constants.Neighborhood;

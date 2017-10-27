@@ -29,12 +29,12 @@
 
     <!-- TODO:be Condense these inputs into fragments to avoid repeating code -->
     <!-- TODO:be Make sure that you implement input validation like checking if it's a number and in San Francisco -->
-    <div class="container">
+    <div class="container space-bottom form-box">
 
         <div class="row">
             <div class="col s12">
-                <h1>Listing Price Optimizer</h1>
-                <h2>Enter your latitude and longitude below</h2>
+                <h1 class="title">Listing Price Optimizer</h1>
+                <h2 class="instructions">Enter your latitude and longitude below</h2>
                 <div class="subtitle">This page will find the Ideal Price Per Night For Max Bookings Based On Area.</div>
             </div>
         </div>
@@ -43,13 +43,13 @@
 
             <div class="row">
                 <div class="col s12 l8">
-                    <p>Enter the Latitude: </p><input type="text" id="latitude" name="latitude"/>
+                    <p class="form-field-title">Enter the Latitude: </p><input type="text" id="latitude" name="latitude"/>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col s12 l8">
-                    <p>Enter the Longitude: </p><input type="text" id="longitude" name="longitude"/>
+                    <p class="form-field-title">Enter the Longitude: </p><input type="text" id="longitude" name="longitude"/>
                 </div>
             </div>
 
@@ -62,11 +62,11 @@
         </form>
 
         <div th:if="${optimizedPrice != null}">
-            <h3>Your neighborhood appears to be close to:</h3>
-            <p th:text="${neighborhood}"></p>
+            <h3 style="color:white;">Your neighborhood appears to be close to:</h3>
+            <p th:text="${neighborhood}" style="color:white;"></p>
 
-            <h3>The optimized price for your booking per day based on your area's highest performing listings should be: </h3>
-            <p th:text="${optimizedPrice}"></p>
+            <h3 style="color:white;">The optimized price for your booking per day based on your area's highest performing listings should be: </h3>
+            <p th:text="${optimizedPrice}" style="color:white;"></p>
 
         </div>
 
