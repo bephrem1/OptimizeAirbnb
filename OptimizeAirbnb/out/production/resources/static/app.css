@@ -1,13 +1,51 @@
 @import url(https://fonts.googleapis.com/css?family=Varela+Round);
 
-body {
+body, html {
     font-family: 'varela round', sans-serif;
     height: 100%;
+    background-image: url("images/host.jpg");
+}
+
+.optimizeText{
+    margin-top: 200px;
+    color: #ffffff;
+}
+
+.optimizeSubtitle{
+    margin-top: 10px;
+    color: #e1e5ed;
 }
 
 h2 {
     font-size: 1.6rem;
     margin-bottom: 0;
+}
+
+#outer
+{
+    width:100%;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.inner
+{
+    display: inline-block;
+    padding-left: .8em;
+    padding-right: .8em;
+}
+
+.full-background {
+    /* The image used */
+    background: url("static/images/host.jpg");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 nav {
@@ -97,6 +135,8 @@ nav ul li.active, nav ul li:hover {
 .footer{
         background:#fd5c63;
         color:white;
+        bottom:0px;
+        margin-bottom:0px;
 }
 
 .github{
@@ -488,7 +528,7 @@ input[type=text]:focus:not([readonly]) {
     border: none;
     color: #fd5c63;
     line-height: 1.5;
-    font-size: 0.9rem;
+    font-size: 1em;
     padding: 1rem 2rem;
     text-align: center;
 }
