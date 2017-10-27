@@ -93,10 +93,9 @@ public class ListingController {
 
         double result = listingService.getOptimizedDailyBookingPrice(neighborhood.getName());
 
-        System.out.println("Optimal Listing Daily Price: $" + NumberUtil.roundHundredths(result)); //////////////
-
         //Add optimized price to the model map
         redirectAttributes.addFlashAttribute("optimizedPrice", NumberUtil.roundHundredths(result));
+        redirectAttributes.addFlashAttribute("neighborhood", neighborhood.getName());
 
         return "redirect:/price-optimization";
     }

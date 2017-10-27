@@ -62,8 +62,12 @@
         </form>
 
         <div th:if="${optimizedPrice != null}">
-            <h3>The optimized price for your booking per day should be: </h3>
+            <h3>Your neighborhood appears to be close to:</h3>
+            <p th:text="${neighborhood}"></p>
+
+            <h3>The optimized price for your booking per day based on your area's highest performing listings should be: </h3>
             <p th:text="${optimizedPrice}"></p>
+
         </div>
 
 
