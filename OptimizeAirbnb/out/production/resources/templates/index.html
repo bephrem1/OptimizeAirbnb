@@ -9,17 +9,14 @@
 
     <div class="container">
 
-        <h1>Hello world</h1>
+        <h1 class="center">Optimize Your Airbnb Listings</h1>
+        <h3 class="subtitle center">Use our amazing tools to bring more guests and more side income!</h3>
 
-        <h2>This application optimizes Airbnb...wow!!!</h2>
-
-        <h3>Ethiopia</h3>
-        <h3>Ethiopia</h3>
-        <h3>Ethiopia</h3>
-        <h3>Ethiopia</h3>
-        <h3>Ethiopia</h3>
-        <h3>Ethiopia</h3>
-        <h3>Ethiopia</h3>
+        <div>
+            <form th:action="@{/visualize}"><input type="submit" value="Visualize Data" class="button"/></form>
+            <form th:action="@{/income-estimation}"><input type="submit" value="Estimate Airbnb Income" class="button"/></form>
+            <form th:action="@{/price-optimization}"><input type="submit" value="Optimize Booking Price" class="button"/></form>
+        </div>
 
     </div>
 
