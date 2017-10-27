@@ -6,11 +6,11 @@ For The Capital One Software Engineering Summit 2nd Round Challenge <br>
 ### Progress:
 Deliverable 1: Visualize the data - FINISHED </br>
 Deliverable 2: Price estimation - FINISHED </br>
-Deliverable 3: Bookings optimization - IN PROGRESS </br>
+Deliverable 3: Bookings optimization - FINISHED </br>
 
-Bonus 1: Animate - NOT STARTED </br>
+Bonus 1: Animate - IN PROGRESS </br>
 Bonus 2: Investment - NOT STARTED </br>
-Bonus 2: Popularity - NOT STARTED </br>
+Bonus 2: Popularity - IN PROGRESS </br>
 
 ### Description:
 Lorem Ipsum
@@ -33,6 +33,7 @@ This allows each layer to be detangled from other layer that have different jobs
 -MongoDB </br>
 -Google Charts </br>
 -Git Version Control </br>
+-Gradle Dependency Management </br>
 
 ## Challenges Encountered </br>
 -No matter how much a program crashes you just have to get back up, look at the error, collect yourself, and
