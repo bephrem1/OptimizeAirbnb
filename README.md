@@ -8,9 +8,17 @@ Deliverable 1: Visualize the data - FINISHED </br>
 Deliverable 2: Price estimation - FINISHED </br>
 Deliverable 3: Bookings optimization - FINISHED </br>
 
-Bonus 1: Animate - IN PROGRESS </br>
+Bonus 1: Animate - FINISHED </br>
 Bonus 2: Investment - NOT STARTED </br>
 Bonus 2: Popularity - IN PROGRESS </br>
+
+Other:
+DAO Unit Tests - NOT STARTED
+Service Unit Tests - NOT STARTED
+Contoller Unit Tests - NOT STARTED
+Cache Database Results - NOT STARTED
+Polish UI/UX - NOT STARTED
+Clean Up Verbose Code + Code Efficiency Checks - NOT STARTED
 
 ### Description:
 Lorem Ipsum
