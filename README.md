@@ -13,12 +13,12 @@ Bonus 2: Investment - NOT STARTED </br>
 Bonus 2: Popularity - IN PROGRESS </br>
 
 Other:
-DAO Unit Tests - NOT STARTED
-Service Unit Tests - NOT STARTED
-Contoller Unit Tests - NOT STARTED
-Cache Database Results - NOT STARTED
-Polish UI/UX - NOT STARTED
-Clean Up Verbose Code + Code Efficiency Checks - NOT STARTED
+DAO Unit Tests - NOT STARTED </br>
+Service Unit Tests - NOT STARTED </br>
+Contoller Unit Tests - NOT STARTED </br>
+Cache Database Results - NOT STARTED </br>
+Polish UI/UX - NOT STARTED </br>
+Clean Up Verbose Code + Code Efficiency Checks - NOT STARTED </br>
 
 ### Description:
 Lorem Ipsum
