@@ -1,7 +1,7 @@
 package com.benyamephrem.web;
 
-import com.benyamephrem.ListingController;
 import com.benyamephrem.service.ListingService;
+import com.benyamephrem.web.controller.ListingController;
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.mockito.InjectMocks;
