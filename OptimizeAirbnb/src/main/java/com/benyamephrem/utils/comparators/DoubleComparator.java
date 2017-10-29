@@ -1,4 +1,4 @@
-package com.benyamephrem.utils;
+package com.benyamephrem.utils.comparators;
 
 import java.util.Comparator;
 import java.util.Map;

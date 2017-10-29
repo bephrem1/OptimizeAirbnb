@@ -3,14 +3,16 @@ package com.benyamephrem.service;
 import com.benyamephrem.dao.ListingDao;
 import com.benyamephrem.model.Listing;
 import com.benyamephrem.model.constants.Neighborhood;
-import com.benyamephrem.utils.DoubleComparator;
-import com.benyamephrem.utils.EntryComparator;
+import com.benyamephrem.utils.comparators.DoubleComparator;
+import com.benyamephrem.utils.comparators.EntryComparator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
 
 //TODO:be QUERY RESULTS SHOULD BE CACHED! We don't want to keep running expensive requests that have already been run. It's slowing application down badly.
+//TODO:be Ensure that averages are adjusted to only take into account listings that were deemed valid to be included in average
+
 @Service
 public class ListingServiceImpl implements ListingService{
     @Autowired
@@ -167,6 +169,44 @@ public class ListingServiceImpl implements ListingService{
         }
 
         return optimizedBookingPriceSum / subList.size();
+    }
+
+    @Override
+    public Integer getNeighborhoodAverageOverallReviewScore(String neighborhood) {
+        List<Listing> neighborhoodListings = listingDao.findByNeighborhood(neighborhood);
+        int overallRatingSum = 0;
+        int validCounter = 0;
+
+        for(Listing listing : neighborhoodListings){
+            int overallRating = listing.getListingReviewStats().getOverallRating();
+
+            //Only process valid overall ratings
+            if(overallRating != 0){
+                overallRatingSum += overallRating;
+                validCounter++;
+            }
+        }
+
+        return overallRatingSum / validCounter;
+    }
+
+    @Override
+    public List<Map.Entry<String, Integer>> getTop10WellReviewedNeighborhoods() {
+        Map<String, Integer> top10ReviewedMap = new HashMap<>();
+
+        //Get all neighborhoods to get count of from our enum
+        Neighborhood[] neighborhoods = Neighborhood.class.getEnumConstants();
+
+        for(Neighborhood neighborhood : neighborhoods){
+            //Populate the map with the rating averages for each neighborhood
+            top10ReviewedMap.put(neighborhood.getName(), getNeighborhoodAverageOverallReviewScore(neighborhood.getName()));
+        }
+
+        //Sort map
+        List<Map.Entry<String, Integer>> results = new ArrayList<>(top10ReviewedMap.entrySet());
+        results.sort(new EntryComparator());
+
+        return results.subList(0, 10); //Return top 10 best reviewed neighborhoods
     }
 
     //TODO:be Revise the accuracy of this calculation, it seems off...

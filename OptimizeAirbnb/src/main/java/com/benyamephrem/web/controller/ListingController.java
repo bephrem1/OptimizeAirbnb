@@ -23,7 +23,7 @@ public class ListingController {
     private ListingService listingService;
 
     @RequestMapping("/")
-    public String getHomepage(Model model){
+    public String getHomepage(){
         return "/index";
     }
 
@@ -59,7 +59,7 @@ public class ListingController {
     }
 
     @RequestMapping("/income-estimation")
-    public String getIncomeEstimationPage(Model model){
+    public String getIncomeEstimationPage(){
 
         return "/income-estimation";
     }
@@ -82,7 +82,7 @@ public class ListingController {
 
 
     @RequestMapping("/price-optimization")
-    public String getPriceOptimizationPage(Model model){
+    public String getPriceOptimizationPage(){
 
         return "/price-optimization";
     }
@@ -98,5 +98,28 @@ public class ListingController {
         redirectAttributes.addFlashAttribute("neighborhood", neighborhood.getName());
 
         return "redirect:/price-optimization";
+    }
+
+    @RequestMapping("/best-neighborhoods")
+    public String getBestNeighborhoods(){
+        return "/best-neighborhoods";
+    }
+
+    @RequestMapping(value = "/best-neighborhoods", method = RequestMethod.POST)
+    public String processBestNeighborhoods(@RequestParam double latitude, @RequestParam double longitude, RedirectAttributes redirectAttributes){
+        List<Map.Entry<String, Integer>> reviewMap = listingService.getTop10WellReviewedNeighborhoods();
+        Neighborhood neighborhood = Locator.findClosestNeighborhood(latitude, longitude);
+
+        for(int i = 1; i <= 10; i++){
+            //Pass the top 10 names data to thymeleaf for processing into charts
+            //Ex Attribute Passed: name1 and nameCount1 (the #1 most occurring name)
+            redirectAttributes.addFlashAttribute("neighborhood" + i, reviewMap.get(i-1).getKey());
+            redirectAttributes.addFlashAttribute("reviewScore" + i, reviewMap.get(i-1).getValue());
+        }
+
+        redirectAttributes.addFlashAttribute("yourNeighborhood", neighborhood.getName());
+        redirectAttributes.addFlashAttribute("yourNeighborhoodScore", listingService.getNeighborhoodAverageOverallReviewScore(neighborhood.getName()));
+
+        return "redirect:/best-neighborhoods";
     }
 }

@@ -6,10 +6,6 @@ body, html {
     background-image: url("images/host.jpg");
 }
 
-.calcimage{
-    padding-top:5em;
-}
-
 .optimizeImage{
     display: block;
     margin-top:120px;
