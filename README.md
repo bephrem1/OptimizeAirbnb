@@ -10,7 +10,7 @@ Deliverable 3: Bookings optimization - FINISHED </br>
 
 Bonus 1: Animate - FINISHED </br>
 Bonus 2: Investment - NOT STARTED </br>
-Bonus 2: Popularity - IN PROGRESS </br>
+Bonus 2: Popularity - FINISHED </br>
 
 Other:
 DAO Unit Tests - NOT STARTED </br>
