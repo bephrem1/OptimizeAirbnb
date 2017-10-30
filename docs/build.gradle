@@ -1,0 +1,61 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.8.RELEASE")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'idea'
+apply plugin: 'spring-boot'
+
+jar {
+    baseName = 'OptimizeAirbnb'
+    version = '0.0.1-SNAPSHOT'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile 'com.coreoz:windmill:1.0.0-rc2' /* Library for reading in CSV data for initial database seeding*/
+    compile 'com.google.guava:guava:19.0' /* Google Guava Library To utilize Guava Tables in calculations*/
+    compile 'org.springframework.boot:spring-boot-starter-thymeleaf' /* Spring Thymeleaf template generation */
+//    compile 'org.springframework.boot:spring-boot-starter-security' /* Spring security for user auth */
+
+    /* Cache of database connections maintained so that the connections can be reused
+    when future requests to the database are required */
+    compile 'org.apache.tomcat:tomcat-dbcp:8.0.30' /* Tomcat Database Connection Pooling */
+
+    /* Allows us to use sec: namespace to directly access principal attributes */
+//    compile 'org.thymeleaf.extras:thymeleaf-extras-springsecurity4:2.1.2.RELEASE'
+
+    /* Since we are working with files we won't be using a RDBMS, therefore we will be using the NoSQL database MongoDB */
+    compile 'org.springframework.boot:spring-boot-starter-data-mongodb:1.5.8.RELEASE'
+
+    /* ACID
+    Atomicity: Either all operations happen or none happen at all to prevent partial updates to database
+    Consistency: Transaction can only effect data in allowed ways...programming errors cannot result in the violation of any defined rules
+    Isolation: Level of visibility concurrent operations have to transactions (can be low or high)
+    Durability: Guarantees that committed transactions will survive permanently
+    */
+    runtime 'javax.transaction:jta:1.1' /* Transaction Management for Transactional Guarantees...read above*/
+    runtime 'org.aspectj:aspectjweaver:1.8.7' /* For load-time class weaving */
+    runtime 'org.apache.httpcomponents:httpclient:4.5.2' /* Allows us to use Apache HttpClient */
+
+    /* Testing every layer that data passes through is crucial to a sustainable application */
+    testCompile 'org.springframework.boot:spring-boot-starter-test' /* 1/2 Libraries necessary for Spring testing */
+    testCompile 'org.springframework.security:spring-security-test' /* 2/2 Libraries necessary for Spring testing */
+    testCompile 'com.github.springtestdbunit:spring-test-dbunit:1.3.0' /* Allow us to test our data layer, integrates with 2 above */
+    testCompile 'org.dbunit:dbunit:2.5.2' /* Allow us to test our data layer, integrates with 2 above to test DAO's */
+    testCompile 'junit:junit:4.12' /* JUnit Testing */
+    testCompile 'org.apache.httpcomponents:httpclient:4.5.2'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9'
+}

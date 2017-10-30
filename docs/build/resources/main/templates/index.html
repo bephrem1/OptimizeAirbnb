@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head th:fragment="head">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="A simple weather that presents Airbnb data from MongoDB elegantly."/>
+    <link rel="stylesheet" type="text/css" th:href="@{/assets/css/app.css}"/>
+    <title>OptimizeAirbnb | Home</title>
+</head>
+
+<body>
+    <div th:replace="layout :: nav"></div>
+
+    <h1>Hello world</h1>
+
+    <footer th:replace="layout :: footer"></footer>
+    <div th:replace="layout :: scripts"></div>
+</body>
+
+</html>
