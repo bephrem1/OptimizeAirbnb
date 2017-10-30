@@ -23,6 +23,7 @@ repositories {
 dependencies {
 
     compile 'com.coreoz:windmill:1.0.0-rc2' /* Library for reading in CSV data for initial database seeding*/
+    compile 'com.google.guava:guava:19.0' /* Google Guava Library To utilize Guava Tables in calculations*/
     compile 'org.springframework.boot:spring-boot-starter-thymeleaf' /* Spring Thymeleaf template generation */
 //    compile 'org.springframework.boot:spring-boot-starter-security' /* Spring security for user auth */
 

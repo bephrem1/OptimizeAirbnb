@@ -63,6 +63,7 @@
 
     <div th:if="${investmentAmountPer != null}">
         <h3 style="color:white;" th:inline="text">You should invest $[[${investmentAmountPer}]] per sector listed below.</h3>
+
         <table>
             <tr>
                 <th style="color:white;">Neighborhood Name</th>
@@ -70,11 +71,13 @@
                 <th style="color:white;">Average Weekly Revenue Per Listing</th>
             </tr>
             <tr th:each="sector : ${sectors}">
-                <td th:text="${sector.key}" style="color:white;">Neighborhood Name</td>
-                <td th:text="${sector.value.key}" style="color:white;">Property Type</td>
-                <td th:text="${sector.value.value}" style="color:white;">Average Weekly Revenue Per Listing</td>
+                <td th:text="${sector.rowKey}" style="color:white;">Neighborhood Name</td>
+                <td th:text="${sector.columnKey}" style="color:white;">Property Type</td>
+                <td th:text="${sector.value}" style="color:white;">Average Weekly Revenue Per Listing</td>
             </tr>
         </table>
+
+        <h3 style="color:white;" th:inline="text">You will breakeven in about [[${breakeven}]] weeks from investment date.</h3>
     </div>
 
 </div>

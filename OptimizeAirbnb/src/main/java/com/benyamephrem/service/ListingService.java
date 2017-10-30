@@ -1,7 +1,7 @@
 package com.benyamephrem.service;
 
 import com.benyamephrem.model.Listing;
-import com.benyamephrem.model.constants.Neighborhood;
+import com.google.common.collect.Table;
 
 import java.util.List;
 import java.util.Map;
@@ -21,5 +21,6 @@ public interface ListingService {
     double getOptimizedDailyBookingPrice(String neighborhood);
     Integer getNeighborhoodAverageOverallReviewScore(String neighborhood);
     List<Map.Entry<String, Integer>> getTop10WellReviewedNeighborhoods();
-    List<Map.Entry<String, Map.Entry<String, Double>>> getSectorsToInvestIn(double aggression);
+    List<Table.Cell<String, String, Double>> getSectorsToInvestIn(double aggression);
+    double findWeeksToBreakeven(List<Table.Cell<String, String, Double>> sectorsInvestedIn, double investment);
 }

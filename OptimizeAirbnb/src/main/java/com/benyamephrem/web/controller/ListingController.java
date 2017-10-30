@@ -5,6 +5,7 @@ import com.benyamephrem.model.constants.Neighborhood;
 import com.benyamephrem.service.ListingService;
 import com.benyamephrem.utils.Locator;
 import com.benyamephrem.utils.NumberUtil;
+import com.google.common.collect.Table;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -130,10 +131,12 @@ public class ListingController {
 
     @RequestMapping(value = "/invest", method = RequestMethod.POST)
     public String processInvestmentCalculator(@RequestParam double investment, @RequestParam double aggression, RedirectAttributes redirectAttributes){
-        List<Map.Entry<String, Map.Entry<String, Double>>> sectors = listingService.getSectorsToInvestIn(aggression/100);
+        List<Table.Cell<String, String, Double>> sectors = listingService.getSectorsToInvestIn(aggression/100);
+        double weeksUntilBreakeven = listingService.findWeeksToBreakeven(sectors, investment);
 
         redirectAttributes.addFlashAttribute("sectors", sectors);
         redirectAttributes.addFlashAttribute("investmentAmountPer", NumberUtil.roundHundredths(investment/sectors.size()));
+        redirectAttributes.addFlashAttribute("breakeven", weeksUntilBreakeven);
 
         return "redirect:/invest";
     }
