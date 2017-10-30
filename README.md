@@ -68,6 +68,8 @@ comfortable on the command line starting MongoDB, navigating around, staging com
 Big O notation never really hit me until I saw how the idea of efficiency can have so much of a time impact on
 operations. Having *thousands* upon *thousands* of listings makes data processing time crucial.</br>
 
+-Breaking Problems Down: Many tasks that I either didn't know how to do or wanted to find the best way to do required me to pull out a notepad and write every step I needed to do in plain English. This process of solving the problem by hand before coding anything gives me more confidence now to solve complex problems as I can just learn how to solve the mini-steps I don't know and do the mini-steps I do know. </br>
+
 -NoSQL means "Not Only SQL", not literally no SQL... </br>
 
 -Using Google Charts to display the data dynamically </br>
