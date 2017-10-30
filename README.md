@@ -55,7 +55,7 @@ persist simple POJO's with Spring Data's MongoDB Repository interface. Every run
 -Never worked with mongoDB before so it was a struggle transitioning from an understing of relational database tables
 to the idea of representing objects in a tree-like pattern (in this case the central 'Listing' class is the parent node) </br>
 
--Frontend is not my forte so it was interesting figuring out how to layout the application </br>
+-Frontend is not my forte so it was interesting figuring out how to layout the application. Many elements are visually bland and I feel like it doesn't do justice to the complexity behind the scenes. </br>
 
 ## Things Learned From This Project </br>
 -Using MongoDB and Spring Data MongoDB, previous to this project I had only worked with RDBMS systems like H2 </br>
