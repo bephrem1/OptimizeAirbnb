@@ -12,7 +12,7 @@ Bonus 1: Animate - FINISHED </br>
 Bonus 2: Investment - FINISHED </br>
 Bonus 2: Popularity - FINISHED </br>
 
-Other Necessities:
+Other Necessities: </br>
 Input Validation - NOT STARTED </br>
 DAO Unit Tests - NOT STARTED </br>
 Service Unit Tests - NOT STARTED </br>
