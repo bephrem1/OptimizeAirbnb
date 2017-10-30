@@ -9,10 +9,11 @@ Deliverable 2: Price estimation - FINISHED </br>
 Deliverable 3: Bookings optimization - FINISHED </br>
 
 Bonus 1: Animate - FINISHED </br>
-Bonus 2: Investment - NOT STARTED </br>
+Bonus 2: Investment - IN PROGRESS </br>
 Bonus 2: Popularity - FINISHED </br>
 
-Other:
+Other Necessities:
+Input Validation - NOT STARTED </br>
 DAO Unit Tests - NOT STARTED </br>
 Service Unit Tests - NOT STARTED </br>
 Contoller Unit Tests - NOT STARTED </br>
