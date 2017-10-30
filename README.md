@@ -1,5 +1,5 @@
 # OptimizeAirbnb <br>
-A SpringBoot Web Application That Optimizes An Airbnb Listing <br>
+A SpringBoot Web Application That Optimizes An Airbnb Listing Based On A Given Dataset From The San Francisco Area with Tens of Thousands of Listings<br>
 
 For The Capital One Software Engineering Summit 2nd Round Challenge <br>
 
@@ -21,8 +21,54 @@ Cache Database Results - NOT STARTED </br>
 Polish UI/UX - NOT STARTED </br>
 Clean Up Verbose Code + Code Efficiency Checks - NOT STARTED </br>
 
-### Description:
-Lorem Ipsum
+### Short Tour:
+**Homepage:** </br>
+It offers navigation buttons to all of the tools provided by this application.
+
+<a href="https://ibb.co/i0irVm"><img src="https://preview.ibb.co/jHsUGR/Screen_Shot_2017_10_30_at_7_05_19_PM.png" alt="Screen_Shot_2017_10_30_at_7_05_19_PM" border="0"></a>
+
+**Visualize:** </br>
+This page displays the 3 charts required as the first deliverable of the challenge. Three charts are provided: </br>
+1.) A 3D pie chart displaying amount of listings per neighborhood </br>
+2.) A count of the most frequent first names appearing on Airbnb listings in San Francisco </br>
+3.) A bar chart displaying the most common property types in San Francisco and listing counts per property type </br>
+
+<a href="https://ibb.co/iVfYbR"><img src="https://preview.ibb.co/dDK4i6/Screen_Shot_2017_10_30_at_7_05_43_PM.png" alt="Screen_Shot_2017_10_30_at_7_05_43_PM" border="0"></a>
+
+**Income Estimator:** </br>
+Given a latitude and longitude this tool will first find the closest neighborhood that you live in using the Haversine method and then find the average revenue that each property type in that neighborhood makes on average weekly. This is then displayed to the user in a simple bar chart as what they can expect to make if they listed in the area with each respective property type (Ex: House, Apartment, Condo)
+
+<a href="https://ibb.co/miFui6"><img src="https://preview.ibb.co/c6GObR/Screen_Shot_2017_10_30_at_7_42_38_PM.png" alt="Screen_Shot_2017_10_30_at_7_42_38_PM" border="0"></a>
+
+**Price Optimizer:** </br>
+Given a latitude and longitude this tool will calculate the optimal price that your listing should be. It takes into account the highest performing listings in the neighborhood and takes the average of the top 20% best performing listings for that given sector and recommends an appropriate price so that your listing can achieve the same results.
+
+<a href="https://ibb.co/fMoBwR"><img src="https://preview.ibb.co/eoDdbR/Screen_Shot_2017_10_30_at_7_05_52_PM.png" alt="Screen_Shot_2017_10_30_at_7_05_52_PM" border="0"></a>
+
+**Best Neighborhoods:** </br>
+This tool allows you to supply the latitude and longitude of your neighborhood and see it's comparison against the top 10 best rated neighborhoods in San Francisco. It displays a chart of the top 10 and adds an extra bar for your neighborhood score so you can make a comparison.
+
+<a href="https://ibb.co/neCMwR"><img src="https://preview.ibb.co/h99ei6/Screen_Shot_2017_10_30_at_7_05_59_PM.png" alt="Screen_Shot_2017_10_30_at_7_05_59_PM" border="0"></a>
+
+<a href="https://ibb.co/fmTTbR"><img src="https://preview.ibb.co/dEtuGR/Screen_Shot_2017_10_30_at_7_51_45_PM.png" alt="Screen_Shot_2017_10_30_at_7_51_45_PM" border="0"></a>
+
+**Investment Calculator:** </br>
+This tool takes asks for an investment amount and an aggression percentage (1 being extremely aggressive and 100 being completely conservative) and recommends the best sectors and the amount to put in each sector to get maximum ROI. Certain edge cases are buggy for this tool and they will be continued to be worked on.
+
+<a href="https://ibb.co/hwdTbR"><img src="https://preview.ibb.co/ceHzi6/Screen_Shot_2017_10_30_at_7_06_07_PM.png" alt="Screen_Shot_2017_10_30_at_7_06_07_PM" border="0"></a>
+
+<a href="https://ibb.co/iYsobR"><img src="https://preview.ibb.co/dGVKi6/Screen_Shot_2017_10_30_at_7_06_44_PM.png" alt="Screen_Shot_2017_10_30_at_7_06_44_PM" border="0"></a>
+
+### How To Run: </br>
+1.) Import this application into IntelliJ with 'git clone' command </br>
+2.) Ensure MongoDB is installed on your machine </br>
+3.) Start mongo with 'mongod' command </br>
+4.) (On First Run) Uncomment DatabaseSeeder class in config package </br>
+5.) Hit run (green play button) </br>
+6.) Visit localhost:8080 and the application should be up </br>
+7.) Comment DatabaseSeeder class as local database is already populated. </br>
+[Visualize Your MongoDB Entries With RoboMongo](https://robomongo.org/). </br>
+
 
 ### How Data Flows:
 **Overview:** This application respects the MVC design pattern (Model View Controller) and common OO design patterns (Single Responsibilty Principle, Encapsulation, etc.). Data is seeded to the MongoDB database that stores entries as nested objects with "leaves" being objects children to the parent object (In this case the parent node is the Listing class). DAO classes are data access classes meaning their only responsibility is to get data from the database based on queries I write in Mongo QUery Language. DAO's then pass the results to the Service layer where calculations are made and that data is processed to make conclusions. Next that data is passed to the Controllers classes that are the interface between the user and and underlying operations the application can perform. Finally, it is passed by the controllers in a ModelMap to the view rendered by the Thymeleaf templating engine. This allows us to display data dynamically using placeholders. </br>
