@@ -9,7 +9,7 @@ Deliverable 2: Price estimation - FINISHED </br>
 Deliverable 3: Bookings optimization - FINISHED </br>
 
 Bonus 1: Animate - FINISHED </br>
-Bonus 2: Investment - IN PROGRESS </br>
+Bonus 2: Investment - FINISHED </br>
 Bonus 2: Popularity - FINISHED </br>
 
 Other Necessities:
