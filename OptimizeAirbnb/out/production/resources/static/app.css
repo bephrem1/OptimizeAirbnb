@@ -35,13 +35,6 @@ h2 {
     margin-top: 30px;
 }
 
-.inner
-{
-    display: inline-block;
-    padding-left: .8em;
-    padding-right: .8em;
-}
-
 .full-background {
     /* The image used */
     background: url("static/images/host.jpg");
@@ -871,4 +864,10 @@ label.button {
 @-o-keyframes fadein {
     from { opacity: 0; }
     to   { opacity: 1; }
+}
+chartArea:{
+    left:5,
+    top: 20,
+    width: '100%',
+    height: '350',
 }

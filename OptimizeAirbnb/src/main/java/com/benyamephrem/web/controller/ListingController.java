@@ -122,4 +122,19 @@ public class ListingController {
 
         return "redirect:/best-neighborhoods";
     }
+
+    @RequestMapping("/invest")
+    public String getInvestmentCalculator(){
+        return "/invest";
+    }
+
+    @RequestMapping(value = "/invest", method = RequestMethod.POST)
+    public String processInvestmentCalculator(@RequestParam double investment, @RequestParam double aggression, RedirectAttributes redirectAttributes){
+        List<Map.Entry<String, Map.Entry<String, Double>>> sectors = listingService.getSectorsToInvestIn(aggression/100);
+
+        redirectAttributes.addFlashAttribute("sectors", sectors);
+        redirectAttributes.addFlashAttribute("investmentAmountPer", NumberUtil.roundHundredths(investment/sectors.size()));
+
+        return "redirect:/invest";
+    }
 }

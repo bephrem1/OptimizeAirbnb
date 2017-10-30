@@ -36,12 +36,14 @@
                     <li th:classappend="${#httpServletRequest.servletPath.equals('/income-estimation') ? 'active' : ''}"><a th:href="@{/income-estimation}" class="navigation-tab">Income Estimator</a></li>
                     <li th:classappend="${#httpServletRequest.servletPath.equals('/price-optimization') ? 'active' : ''}"><a th:href="@{/price-optimization}" class="navigation-tab">Price Optimizer</a></li>
                     <li th:classappend="${#httpServletRequest.servletPath.equals('/best-neighborhoods') ? 'active' : ''}"><a th:href="@{/best-neighborhoods}" class="navigation-tab">Best Neighborhoods</a></li>
+                    <li th:classappend="${#httpServletRequest.servletPath.equals('/invest') ? 'active' : ''}"><a th:href="@{/invest}" class="navigation-tab">Investment Calculator</a></li>
                 </ul>
                 <ul id="mobile-nav" class="side-nav">
                     <li th:classappend="${#httpServletRequest.servletPath.equals('/visualize') ? 'active' : ''}"><a th:href="@{/visualize}" class="navigation-tab">Visualize</a></li>
                     <li th:classappend="${#httpServletRequest.servletPath.equals('/income-estimation') ? 'active' : ''}"><a th:href="@{/income-estimation}" class="navigation-tab">Income Estimator</a></li>
                     <li th:classappend="${#httpServletRequest.servletPath.equals('/price-optimization') ? 'active' : ''}"><a th:href="@{/price-optimization}" class="navigation-tab">Price Optimizer</a></li>
                     <li th:classappend="${#httpServletRequest.servletPath.equals('/best-neighborhoods') ? 'active' : ''}"><a th:href="@{/best-neighborhoods}" class="navigation-tab">Best Neighborhoods</a></li>
+                    <li th:classappend="${#httpServletRequest.servletPath.equals('/invest') ? 'active' : ''}"><a th:href="@{/invest}" class="navigation-tab">Investment Calculator</a></li>
                 </ul>
             </div>
         </nav>

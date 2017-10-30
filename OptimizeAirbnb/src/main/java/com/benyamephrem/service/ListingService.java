@@ -21,4 +21,5 @@ public interface ListingService {
     double getOptimizedDailyBookingPrice(String neighborhood);
     Integer getNeighborhoodAverageOverallReviewScore(String neighborhood);
     List<Map.Entry<String, Integer>> getTop10WellReviewedNeighborhoods();
+    List<Map.Entry<String, Map.Entry<String, Double>>> getSectorsToInvestIn(double aggression);
 }

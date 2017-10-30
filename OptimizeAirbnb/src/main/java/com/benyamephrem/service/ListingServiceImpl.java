@@ -3,8 +3,10 @@ package com.benyamephrem.service;
 import com.benyamephrem.dao.ListingDao;
 import com.benyamephrem.model.Listing;
 import com.benyamephrem.model.constants.Neighborhood;
+import com.benyamephrem.utils.Entry;
 import com.benyamephrem.utils.comparators.DoubleComparator;
 import com.benyamephrem.utils.comparators.EntryComparator;
+import com.benyamephrem.utils.comparators.StringDoubleComparator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -207,6 +209,39 @@ public class ListingServiceImpl implements ListingService{
         results.sort(new EntryComparator());
 
         return results.subList(0, 10); //Return top 10 best reviewed neighborhoods
+    }
+
+    //TODO: This return type looks nasty...there must be a better way to structure the data we have here...
+    @Override
+    public List<Map.Entry<String, Map.Entry<String, Double>>> getSectorsToInvestIn(double aggression) {
+        Map<String, Map.Entry<String, Double>> map = new HashMap<>();
+        Neighborhood[] neighborhoods = Neighborhood.class.getEnumConstants();
+
+        //Populate map with (Key: Neighborhood Name, Value: (Key: Property Type, Value: Weekly Revenue))
+        for(Neighborhood neighborhood : neighborhoods){
+            List<Listing> houseListings = listingDao.findByNeighborhoodAndPropertyType(neighborhood.getName(), "House");
+            List<Listing> apartmentLitings = listingDao.findByNeighborhoodAndPropertyType(neighborhood.getName(), "Apartment");
+            List<Listing> condoListings = listingDao.findByNeighborhoodAndPropertyType(neighborhood.getName(), "Condominium");
+
+
+            map.put(neighborhood.getName(), new Entry<>("House", calculateAverageIncomePerListing(houseListings)));
+            map.put(neighborhood.getName(), new Entry<>("Apartment", calculateAverageIncomePerListing(apartmentLitings)));
+            map.put(neighborhood.getName(), new Entry<>("Condominium", calculateAverageIncomePerListing(condoListings)));
+        }
+
+        for (Map.Entry<String, Map.Entry<String, Double>> entry: map.entrySet()){
+            System.out.println("Neighborhood: " + entry.getKey() +
+                    "           Property Type: " + entry.getValue().getKey() +
+                    "           Average Weekly Income: " + entry.getValue().getValue());
+        }
+
+        //Sort the map to float the highest income per week sectors to the top (Property Type & Neighborhood = Sector)
+        List<Map.Entry<String, Map.Entry<String, Double>>> results = new ArrayList<>(map.entrySet());
+        results.sort(new StringDoubleComparator());
+
+        //Return a sublist based on aggression provided by user
+        //So if we had 100 listings with a 25% aggression, this would return a list of map entries 0 through 25 (pre-sorted of course)
+        return results.subList(0, (int) Math.round(results.size()*aggression));
     }
 
     //TODO:be Revise the accuracy of this calculation, it seems off...
