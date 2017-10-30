@@ -272,7 +272,7 @@ public class ListingServiceImpl implements ListingService{
                                     .collect(Collectors.toList());
     }
 
-    //TODO: Fix faulty calculation here first
+    //TODO: Fix faulty calculation here...reimplement as this is not correct
     @Override
     public double findWeeksToBreakeven(List<Table.Cell<String, String, Double>> sectorsInvestedIn, double investment) {
         double totalWeeklyIncome = 0.0;
@@ -282,7 +282,7 @@ public class ListingServiceImpl implements ListingService{
             totalWeeklyIncome += cell.getValue();
         }
 
-        //This will return weeks until initial investment is returned (breakeven point
+        //This will return weeks until initial investment is returned (break-even point)
         return NumberUtil.roundHundredths(investment / totalWeeklyIncome);
     }
 
