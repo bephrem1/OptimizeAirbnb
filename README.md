@@ -91,6 +91,8 @@ that. I will go back and correct this and these are marked by TODO's</br>
 
 -The neighborhood enum is what is used to find people's neighborhood based on what latitude and longitude is passed in. Some neighborhood locations don't match up because of minor descrepencies between what I pulled from Google Maps and the literal location in the excel spreadsheet. I'm still thinking of what would be the best solution here but either way the match is very close or exact in most cases. </br>
 
+-The breakeven calculation on the Investment Calculator is slightly faulty. Currently fixing the calculation to take into account investment put into each sector instead of just sampling and adding up weekly income from the sector list.
+
 ## Built With
 
 * [Spring](https://spring.io/) - The Web Framework Used
