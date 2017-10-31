@@ -1,7 +1,13 @@
 # OptimizeAirbnb <br>
 A SpringBoot Web Application That Optimizes An Airbnb Listing Based On A Given Dataset From The San Francisco Area with Tens of Thousands of Listings<br>
 
-For The Capital One Software Engineering Summit 2nd Round Challenge <br>
+For The Capital One Software Engineering Summit 2nd Round Challenge 2017 <br>
+
+School: University of Maryland College Park </br>
+Year: Class of 2021 (Freshman) </br>
+
+Date Project Started From Scratch: 10/23/17 </br>
+Date Deliverables + Bonus Finished: 10/30/17 </br>
 
 ### Progress:
 Deliverable 1: Visualize the data - FINISHED </br>
