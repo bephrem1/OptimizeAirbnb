@@ -19,7 +19,7 @@ Bonus 2: Investment - FINISHED </br>
 Bonus 2: Popularity - FINISHED </br>
 
 Other Necessities: </br>
-Input Validation - NOT STARTED </br>
+Input Validation & Security- NOT STARTED </br>
 DAO Unit Tests - NOT STARTED </br>
 Service Unit Tests - NOT STARTED </br>
 Contoller Unit Tests - NOT STARTED </br>
