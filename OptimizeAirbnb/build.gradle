@@ -7,9 +7,6 @@ buildscript {
     }
 }
 
-task stage(dependsOn: ['build', 'clean'])
-build.mustRunAfter cleanc
-
 apply plugin: 'java'
 apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
