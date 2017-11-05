@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+
+<head th:fragment="head">
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="A simple weather that presents Airbnb data from MongoDB elegantly."/>
+
+    <link rel="icon" th:href="@{/favicon.png}" />
+
+    <link rel="stylesheet" th:href="@{/vendor/materialize/css/materialize.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/codrops/css/cs-select.css}" />
+    <link rel="stylesheet" th:href="@{/vendor/codrops/css/cs-skin-border.css}" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" th:href="@{/app.css}" />
+
+    <link rel="stylesheet" href="http://fontawesome.io/assets/font-awesome/css/font-awesome.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+
+    <title>OptimizeAirbnb | Invest</title>
+
+</head>
+
+<body>
+<div th:replace="layout :: nav"></div>
+
+<!-- TODO:be Condense these inputs into fragments to avoid repeating code -->
+<!-- TODO:be Make sure that you implement input validation like checking if it's a number and in San Francisco-->
+<div class="container space-bottom form-box">
+    <img src="invest.png" alt="investment icon" width="100" height="100"/>
+    <div class="row">
+        <div class="col s12" >
+            <h1 class="title">Investment Calculator</h1>
+            <h2 class="instructions">Enter your investment amount and investment aggression below.</h2>
+            <div class="subtitle">This will provide a list of the highest performing property types per San Francisco neighborhood and provide an investment strategy based on the risk tolerance you provide.</div>
+        </div>
+    </div>
+
+    <form th:action="@{/invest}" method="post">
+
+        <div class="row">
+            <div class="col s12 l8">
+                <p class="form-field-title">Enter your investment dollar amount: </p><input type="text" id="investment" name="investment" placeholder="Ex: 1000"/>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 l8">
+                <p class="form-field-title">Enter your aggression percentage: </p><input type="text" id="aggression" name="aggression" placeholder="Ex: 20"/>
+                <div class="subtitle">Ex1: 10% is aggressive as you will invest in the top 10% of performers and your portfolio will have more money in less properties.</div>
+                <div class="subtitle">Ex2: 50% is more conservative as you will invest in the top 50% of performers and your portfolio will have more money in more properties with a wider variety of performance.</div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col s12 l8">
+                <button type="submit" class="button" text="Investment Calculation">Get Investment Calculation</button>
+            </div>
+        </div>
+
+    </form>
+
+
+    <div th:if="${investmentAmountPer != null}">
+        <h3 style="color:white;" th:inline="text">You should invest $[[${investmentAmountPer}]] per sector listed below.</h3>
+
+        <table>
+            <tr>
+                <th style="color:white;">Neighborhood Name</th>
+                <th style="color:white;">Property Type</th>
+                <th style="color:white;">Average Weekly Revenue Per Listing</th>
+            </tr>
+            <tr th:each="sector : ${sectors}">
+                <td th:text="${sector.rowKey}" style="color:white;">Neighborhood Name</td>
+                <td th:text="${sector.columnKey}" style="color:white;">Property Type</td>
+                <td th:text="${sector.value}" style="color:white;">Average Weekly Revenue Per Listing</td>
+            </tr>
+        </table>
+
+        <h3 style="color:white;" th:inline="text">You will breakeven in about [[${breakeven}]] weeks from investment date.</h3>
+    </div>
+
+</div>
+
+<footer th:replace="layout :: footer"></footer>
+<div th:replace="layout :: scripts"></div>
+</body>
+
+</html>
