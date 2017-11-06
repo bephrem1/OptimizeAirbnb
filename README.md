@@ -109,6 +109,8 @@ to the idea of representing objects in a tree-like pattern (in this case the cen
 
 -Frontend is not my forte so it was interesting figuring out how to layout the application. Many elements are visually bland and I feel like it doesn't do justice to the complexity behind the scenes. </br>
 
+-Depolying to Heroku sounded easy at first (and is for a static application) but turned into a 10 hours orderal where I had wrong buildscripts, git ignored files that Heroku wanted, mistyped remotes, had to learn how to hook up mongo with heroku...it was frustrating. I do now understand how to deploy a static or dynamic spring boot application on Heroku and the idea of remotes and local commits makes alot more sense now.
+
 ## Things Learned From This Project </br>
 -Using MongoDB and Spring Data MongoDB, previous to this project I had only worked with RDBMS systems like H2 </br>
 
