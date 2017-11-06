@@ -56,13 +56,13 @@ public class ListingController {
             model.addAttribute("propertyCount" + i, top3PropertyTypesThatOccur.get(i-1).getValue());
         }
 
-        return "/visualize";
+        return "visualize";
     }
 
     @RequestMapping("/income-estimation")
     public String getIncomeEstimationPage(){
 
-        return "/income-estimation";
+        return "income-estimation";
     }
 
     @RequestMapping(value = "/income-estimation", method = RequestMethod.POST)
@@ -85,7 +85,7 @@ public class ListingController {
     @RequestMapping("/price-optimization")
     public String getPriceOptimizationPage(){
 
-        return "/price-optimization";
+        return "price-optimization";
     }
 
     @RequestMapping(value = "/price-optimization", method = RequestMethod.POST)
@@ -103,7 +103,7 @@ public class ListingController {
 
     @RequestMapping("/best-neighborhoods")
     public String getBestNeighborhoods(){
-        return "/best-neighborhoods";
+        return "best-neighborhoods";
     }
 
     @RequestMapping(value = "/best-neighborhoods", method = RequestMethod.POST)
@@ -126,7 +126,7 @@ public class ListingController {
 
     @RequestMapping("/invest")
     public String getInvestmentCalculator(){
-        return "/invest";
+        return "invest";
     }
 
     @RequestMapping(value = "/invest", method = RequestMethod.POST)
