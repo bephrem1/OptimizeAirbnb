@@ -237,6 +237,13 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/../docs/src/test/java/com/benyamephrem/dao/ListingDaoTest.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../docs/src/test/java/com/benyamephrem/service/ListingServiceTest.java" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/../docs/src/test/java/com/benyamephrem/web/ListingControllerTest.java" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/benyamephrem/config/DatabaseSeeder.java" afterPath="$PROJECT_DIR$/src/main/java/com/benyamephrem/config/DatabaseSeeder.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/benyamephrem/model/Listing.java" afterPath="$PROJECT_DIR$/src/main/java/com/benyamephrem/model/Listing.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/benyamephrem/service/ListingServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/benyamephrem/service/ListingServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/benyamephrem/web/controller/ListingController.java" afterPath="$PROJECT_DIR$/src/main/java/com/benyamephrem/web/controller/ListingController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/application.properties" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -310,7 +317,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="15">
-              <caret line="1" column="118" lean-forward="true" selection-start-line="1" selection-start-column="118" selection-end-line="1" selection-end-column="118" />
+              <caret line="1" column="118" lean-forward="false" selection-start-line="1" selection-start-column="118" selection-end-line="1" selection-end-column="118" />
               <folding />
             </state>
           </provider>
@@ -320,7 +327,7 @@
         <entry file="file://$PROJECT_DIR$/src/main/java/com/benyamephrem/config/DatabaseSeeder.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding>
                 <element signature="e#0#7418#0" expanded="true" />
               </folding>
@@ -567,8 +574,8 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4527226554000" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="1644224566" />
+        <entry key="$PROJECT_DIR$" value="4527314102000" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="748879172" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="615277776" />
       </map>
     </option>
@@ -1199,7 +1206,7 @@
     </recent_temporary>
   </component>
   <component name="SbtLocalSettings">
-    <option name="lastUpdateTimestamp" value="1509930241798" />
+    <option name="lastUpdateTimestamp" value="1510004464551" />
     <option name="externalProjectsViewState">
       <projects_view />
     </option>
@@ -1268,7 +1275,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="23" width="1280" height="713" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Debug Logs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32917318" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1293,7 +1299,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39937598" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32761312" sideWeight="0.496875" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4477379" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4477379" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="FAQ Robot" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1984375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -1662,7 +1668,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
-          <caret line="1" column="118" lean-forward="true" selection-start-line="1" selection-start-column="118" selection-end-line="1" selection-end-column="118" />
+          <caret line="1" column="118" lean-forward="false" selection-start-line="1" selection-start-column="118" selection-end-line="1" selection-end-column="118" />
           <folding />
         </state>
       </provider>
@@ -1680,7 +1686,7 @@
     <entry file="file://$PROJECT_DIR$/src/main/java/com/benyamephrem/config/DatabaseSeeder.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="true" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#7418#0" expanded="true" />
           </folding>
