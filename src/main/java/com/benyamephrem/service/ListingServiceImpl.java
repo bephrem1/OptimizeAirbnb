@@ -172,7 +172,7 @@ public class ListingServiceImpl implements ListingService{
         results.sort(new DoubleComparator());
 
         //Find average of the top 20% listings with the best fill rates
-        List<Map.Entry<Double, Double>> subList = results.subList(0, (int) Math.round(neighborhoodListings.size() * .2));
+        List<Map.Entry<Double, Double>> subList = results.subList(0, (int) Math.round(results.size() * .2));
         for(Map.Entry<Double, Double> entry : subList){
             optimizedBookingPriceSum += entry.getKey();
         }
