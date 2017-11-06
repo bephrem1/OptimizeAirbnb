@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="Gradle: com.coreoz:windmill:1.0.0-rc2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.coreoz/windmill/1.0.0-rc2/41295c79ee7cd5ba9ccf4cd0c50d586a03bda7b2/windmill-1.0.0-rc2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.coreoz/windmill/1.0.0-rc2/6531c90cbba97553fd5de97490d3e0ffc63d1f1/windmill-1.0.0-rc2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

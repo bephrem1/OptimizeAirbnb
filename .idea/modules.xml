@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/OptimizeAirbnb.iml" filepath="$PROJECT_DIR$/.idea/modules/OptimizeAirbnb.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/OptimizeAirbnb_main.iml" filepath="$PROJECT_DIR$/.idea/modules/OptimizeAirbnb_main.iml" group="OptimizeAirbnb" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/OptimizeAirbnb_test.iml" filepath="$PROJECT_DIR$/.idea/modules/OptimizeAirbnb_test.iml" group="OptimizeAirbnb" />
+    </modules>
+  </component>
+</project>
