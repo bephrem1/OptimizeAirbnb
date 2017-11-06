@@ -36,7 +36,6 @@ dependencies {
 
     /* Since we are working with files we won't be using a RDBMS, therefore we will be using the NoSQL database MongoDB */
     compile 'org.springframework.boot:spring-boot-starter-data-mongodb:1.5.8.RELEASE'
-    compile 'org.mongodb:mongodb-driver:3.5.0'
 
     /* ACID
     Atomicity: Either all operations happen or none happen at all to prevent partial updates to database
