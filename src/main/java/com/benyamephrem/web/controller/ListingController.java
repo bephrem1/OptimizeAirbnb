@@ -25,7 +25,7 @@ public class ListingController {
 
     @RequestMapping("/")
     public String getHomepage(){
-        return "/index";
+        return "index";
     }
 
     @RequestMapping("/visualize")
