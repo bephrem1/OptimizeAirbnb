@@ -18,7 +18,6 @@ public class DatabaseSeeder implements CommandLineRunner{
 
     @Autowired
     private ListingDao listingDao;
-    private int listingNumber = 0;
 
     @Override
     public void run(String... args) throws Exception {
@@ -98,12 +97,7 @@ public class DatabaseSeeder implements CommandLineRunner{
                         );
 
                         //Persist the constructed listing object
-                        System.out.println("We have reached right before the save statement");
-
                         listingDao.save(listing);
-
-                        System.out.println("Saved listing number" + listingNumber);
-                        listingNumber++;
                     });
         }
 
