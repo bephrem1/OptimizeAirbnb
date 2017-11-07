@@ -15,7 +15,6 @@
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-thymeleaf:1.5.8.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.apache.tomcat:tomcat-dbcp:8.0.30" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-data-mongodb:1.5.8.RELEASE" level="project" />
-    <orderEntry type="library" name="Gradle: org.mongodb:mongo-java-driver:3.4.2" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.boot:spring-boot-starter-test:1.5.8.RELEASE" level="project" />
     <orderEntry type="library" name="Gradle: org.springframework.security:spring-security-test:4.2.3.RELEASE" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Gradle: javax.transaction:jta:1.1" level="project" />
