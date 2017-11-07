@@ -9,6 +9,8 @@ Year: Class of 2021 (Freshman) </br>
 Date Project Started From Scratch: 10/23/17 </br>
 Date Deliverables + Bonus Finished: 10/30/17 </br>
 
+**Note:** Only 2,000 listings have been loaded so far...will continue to load listings when I get more free-time
+
 ### Progress:
 Deliverable 1: Visualize the data - FINISHED </br>
 Deliverable 2: Price estimation - FINISHED </br>
