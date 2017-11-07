@@ -75,6 +75,8 @@ This tool takes asks for an investment amount and an aggression percentage (1 be
 7.) Comment DatabaseSeeder class as local database is already populated. </br>
 [Visualize Your MongoDB Entries With RoboMongo](https://robomongo.org/). </br>
 
+Or Application is Live At: https://optimize-airbnb.herokuapp.com/
+
 
 ### How Data Flows:
 **Overview:** This application respects the MVC design pattern (Model View Controller) and common OO design patterns (Single Responsibilty Principle, Encapsulation, etc.). Data is seeded to the MongoDB database that stores entries as nested objects with "leaves" being objects children to the parent object (In this case the parent node is the Listing class). DAO classes are data access classes meaning their only responsibility is to get data from the database based on queries I write in Mongo QUery Language. DAO's then pass the results to the Service layer where calculations are made and that data is processed to make conclusions. Next that data is passed to the Controllers classes that are the interface between the user and and underlying operations the application can perform. Finally, it is passed by the controllers in a ModelMap to the view rendered by the Thymeleaf templating engine. This allows us to display data dynamically using placeholders. </br>
@@ -95,6 +97,7 @@ This allows each layer to be detangled from other layer that have different jobs
 -Google Charts </br>
 -Git Version Control </br>
 -Gradle Dependency Management </br>
+-Deploying On Heoku </br>
 
 ## Challenges Encountered </br>
 -No matter how much a program crashes you just have to get back up, look at the error, collect yourself, and
@@ -110,6 +113,15 @@ to the idea of representing objects in a tree-like pattern (in this case the cen
 -Frontend is not my forte so it was interesting figuring out how to layout the application. Many elements are visually bland and I feel like it doesn't do justice to the complexity behind the scenes. </br>
 
 -Depolying to Heroku sounded easy at first (and is for a static application) but turned into a 10 hours orderal where I had wrong buildscripts, git ignored files that Heroku wanted, mistyped remotes, had to learn how to hook up mongo with heroku...it was frustrating. I do now understand how to deploy a static or dynamic spring boot application on Heroku and the idea of remotes and local commits makes alot more sense now.
+
+### The Deploying Nightmare </br>
+-I have **never** deployed an application to a remote source so after some searching of the internets I found a simple solution...Heroku. It uses git and in just four words (git push heroku master) I can push changes and deploy an application to the world in the click of a button. Little did I know that it would be wayyyyyyyyyy harder than I thought. </br>
+
+Challenge 1: The first challenge I faced was understanding what a remote was. I know git pretty solid but the idea of remote repositories had never really clicked for me. But now it is so simple...it's literally just a remote code-base you push commits to, not any different from me pushing to github. I just had to add my heroku app as a remote in IntelliJ VCS settings.
+
+Challenge 2: The second challenge I faced setting the correct buildpack. I had no idea what these were and I tried switching my project over to a java buildpack and making my project use Maven instead of Gradle (because the Heroku guide only showed how to use Maven to deploy). Little did I know that there already was a gradle buildpack to use on my application.
+
+Challenge 3 **(the 12 hour nightmare)**: Once the static site was up it was time to connect the database and seed it. This literally drove me insane. I could not focus on anything but making this work because run after run my application would crash. Hour after hour no progress. Logs showed nothing on first glance so I looked a ton of other places that didn't matter. Finally I logically realized that it must be in the Database Loader lambda that an error is happening. I pulled up the tail of the logs, took a very close look, line by line, and there it was..."java.lang.OutOfMemoryError: GC overhead limit exceeded at line 30 in DatabaseLoader.java". I realized that the FileInput object was trying to be created on a HUGE excel file and the application crashed to avoid a fatal Heap overflow. I made the excel file smaller with less entries and voilà...the database came to life with 1,998 documents...after hours...and hours...and hours of......nothing. I am currently finishing the seeding process and testing every part of the application for functionality.
 
 ## Things Learned From This Project </br>
 -Using MongoDB and Spring Data MongoDB, previous to this project I had only worked with RDBMS systems like H2 </br>
@@ -128,6 +140,8 @@ operations. Having *thousands* upon *thousands* of listings makes data processin
 -NoSQL means "Not Only SQL", not literally no SQL... </br>
 
 -Using Google Charts to display the data dynamically </br>
+
+-Sifting through logs. This is **so** important and could have saved me 12 hours of troubleshooting upon deploying of the application. The logs are essentially the application talking to you and if you aren't "listening" then it is near impossible to quickly pinpoint an issue. Once I got comfortable reading verbose logs from Heroku I found the GC overhead limit problem quickly and solved it.</br>
 
 ## What I Don't Like About My Project </br>
 -There are a lot of places where things are ineffecient, hacked together, and unsustainable. There are places with heavy/repeated database calls that can be moved around, many verbose expressions that can be simplified, etc. I'd like to fix these moving forward and have marked them with TODO's </br>
