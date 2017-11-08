@@ -9,7 +9,7 @@ Year: Class of 2021 (Freshman) </br>
 Date Project Started From Scratch: 10/23/17 </br>
 Date Deliverables + Bonus Finished: 10/30/17 </br>
 
-**Note:** Only 2,000 listings have been loaded so far...will continue to load listings when I get more free-time. This application will still work no matter how many (or little) listings are in the backend though (but may throw divide by zero errors if neighborhood that hasn't been loaded yet is queried for an income estimate or other calculation etc.)
+**Note:** Only 2,000 listings have been loaded so far...will continue to load listings when I get more free-time. This application will still work no matter how many (or little) listings are in the backend though besides some edge cases like in the investment calculator (divide by zero errors may happen if neighborhood that hasn't been loaded yet is queried for an income estimate or other calculation etc.)
 
 ### Progress:
 Deliverable 1: Visualize the data - FINISHED </br>
